@@ -1,0 +1,10 @@
+<tmpl_if _pages>
+<div id="pageList">
+	Paginas: 
+	<tmpl_loop name="_pages">
+	<tmpl_if current_page><span class="current_page"><tmpl_var page_num></span><tmpl_else>
+	<a href="<tmpl_var _url>?p=<tmpl_var p>&_n=<tmpl_var index_num>&_i=<tmpl_var _items_per_page>"><tmpl_var page_num></a>
+	</tmpl_if>
+	</tmpl_loop>
+</div>
+</tmpl_if>

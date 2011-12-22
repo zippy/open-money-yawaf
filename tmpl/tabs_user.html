@@ -1,0 +1,12 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+      <li id="tab-info" title="{{Update your contact info}}" <tmpl_if p_contactInfo>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=contactInfo">{{Contact Info}}</a></li>
+      <li id="tab-prefs" title="{{Update how the site works for you}}" <tmpl_if p_accountPrefs>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountPrefs">{{Preferences}}</a></li>
+      <li id="tab-pass" title="{{Change your password}}" <tmpl_if p_accountChange>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountChange">{{Password}}</a></li>
+    </ul>
+        </div></td>
+  </tr>
+</table>

@@ -1,0 +1,422 @@
+/* CSS Document */
+#_topbar {
+	text-align:right;
+	font-size: 80%;
+}
+
+#_main {
+	padding: 0 0 0 10px;
+}
+
+#_header {
+	text-align:center;
+}
+
+#_titlebar h2 {
+	margin: 0;
+	margin-top: .5em;
+	font-weight: normal;
+	color: rgb(  0,102,  0);
+	font-size: 110%;
+}
+#_titlebar a {
+	margin: 0;
+	margin-top: .5em;
+	font-weight: normal;
+	color: rgb(  0,102,  0);
+	font-size: 110%;
+}
+
+
+#_footer p {
+	clear: both;
+	text-align:center;
+	font-size: 85%;
+    border: 1px solid;
+	border-color: #8cacbb #ffffff #ffffff #ffffff;
+}
+#_topbar a {
+	font-size: 85%;
+}
+
+body {
+	background-color:#CCCCCC;
+}
+
+body,td,a,p,.h,legend,label{
+	font-family: arial,sans-serif;
+	font-size:10pt;
+	}
+a {
+	text-decoration:none;
+}
+
+#_contents {
+    background-color: #ffffff;
+    border: 1px solid;
+	border-color: #8cacbb;
+    margin-left: auto;
+    margin-right: auto;
+	width: 900px;
+}
+
+/* this is the bar within which the section-tabs live */
+#_section_nav {
+    background-color: #dee7ec;
+    border-top-color: #8cacbb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #8cacbb;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    line-height: 1.6em;
+    color: Black;
+    padding: .5em 0em 0em 0em;
+    margin: .2em 0 0 0;
+    text-align: left;
+    text-transform: lowercase;
+    list-style: none;
+}
+
+/* The section navs tabs. */
+
+#section-tabs {
+    background-color: transparent;
+    padding: 0em 0em 0em 1em;
+    white-space: nowrap;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+}
+
+#section-tabs li {
+    display: inline;
+}
+
+#section-tabs li a {
+    /* The normal, unselected tabs. They are all links */
+    background-color: transparent;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: solid solid none solid;
+    color: #0E6E0E;
+    height: auto;
+    margin: 0em;
+    padding: 0em 1em;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+#section-tabs li.selected a {
+    /* The selected tab. There's only one of this */
+    background-color: #ffffff;
+    border: 2px solid #8cacbb;
+    border-bottom: #ffffff 2px solid;
+    color: #0E6E0E;
+}
+
+#section-tabs li.text_items {
+    border-color: transparent;
+    text-transform: none;
+    color: #0E6E0E;
+    margin-left: 0.5em;
+}
+
+
+#section-tabs li a:hover {
+    background-color: #ffffff;
+    border-color: #8cacbb;
+    border-bottom-color: #dee7ec;
+    color: #0E6E0E;
+}
+
+/* The tabs for each section. */
+
+#tabs {
+    background-color: transparent;
+    padding: 0em 0em 0em 0em;
+    white-space: nowrap;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+}
+
+#tabs li {
+    display: inline;
+}
+
+#tabs li.nolinktab {
+    /* This tab is for items that appear without links as the current tab */
+    background-color: transparent;
+    border: 1px solid #8cacbb;
+    border-bottom: #ffffff 1px solid;
+    border-width: 1px;
+    color: #0E6E0E;
+    height: auto;
+    margin: .1em;
+    padding: 0em 1em;
+    text-decoration: none;
+    text-transform: lowercase;
+	font-size: 90%;
+}
+
+#tabs li a {
+    /* The normal, unselected tabs. They are all links */
+    background-color: #dee7ec;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: solid solid none solid;
+    color: #0E6E0E;
+    height: auto;
+    margin: .1em;
+    padding: 0em 1em;
+    text-decoration: none;
+    text-transform: lowercase;
+	font-size: 90%;
+}
+
+#tabs li.selected a {
+    /* The selected tab. There's only one of this */
+    background-color: transparent;
+    border: 1px solid #8cacbb;
+    border-bottom: #ffffff 1px solid;
+    color: #0E6E0E;
+}
+
+#tabs li a:hover {
+    background-color: transparent;
+    border-color: #8cacbb;
+    border-bottom-color: #dee7ec;
+    color: #0E6E0E;
+}
+
+#tabs-bar {
+    background-color: transparent;
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #8cacbb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    line-height: 1.6em;
+    color: Black;
+    padding: 0em 0em 0em .7em;
+    margin: .5em 0 0 0;
+    text-align: left;
+    text-transform: lowercase;
+    list-style: none;
+}
+
+#account-selector {
+	color: rgb(  0,102,  0);
+	font-weight: bold;
+}
+#_account-selector {
+	float: left;
+	margin: 2px .2em 0 0;
+}
+#currency-info {
+	color: rgb(  0,102,  0);
+	font-weight: bold;
+}
+
+#loginbox {
+    background-color: transparent;
+    padding: 0em 0em 0em 0em;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+	font-size: 90%;
+	margin-left:0;
+}
+
+#loginbox input {
+    visibility: visible;
+    border: 1px solid #8cacbb;
+    color: Black;
+    vertical-align: middle;
+    background: White url(/images/input_background.gif) repeat-x;
+}
+
+#loginbox fieldset {
+    border: 1px solid #8cacbb;
+    margin: 1em 0em 1em 0em;
+    padding: 0em 1em 1em 1em;
+    line-height: 1.5em;
+}
+#loginbox legend {
+    background: White;
+    padding: 0.5em;
+}
+#loginbox label {
+	width: 5em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block
+}
+
+
+fieldset#settings {
+    border: none;
+}
+#settings label {
+ margin: 5px 0 0 0;
+ clear: both;
+	width: 150px;
+	float: left;
+}
+#settings .extra {
+margin: 0 0 0 150px;
+float: left;
+clear: both;
+font-size: 80%;
+}
+#settings input,#settings select {
+ margin: 5px 0 0 0;
+    border: 1px solid #8cacbb;
+    float: left;
+    color: Black;
+    vertical-align: middle;
+    background: White url(/images/input_background.gif) repeat-x;
+}
+
+.clear {
+	clear: both;
+}
+.dev_header {
+	float: left;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none solid solid none;
+    padding: 0 5px 0 5px;
+}
+
+#localization_edit fieldset{
+    border: none;
+}
+
+#localization_template {
+    border-color: Red;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0px 5px 5px 5px;
+}
+
+.localization_template_header {
+    border-color: Red;
+    border-width: 1px;
+    border-style: none  none solid none;
+    padding: 0;
+}
+
+#dashboard {
+	text-align: center;
+}
+
+.smaller {
+	font-size: 80%;
+}
+
+.errortext {
+	color:#990000;
+}
+
+.tab-title {
+	color: rgb(  0,102,  0);
+	font-weight: bold;
+}
+
+.listtabletitle {
+	color: rgb(  0,102,  0);
+	font-weight: bold;
+}
+
+.listtable {
+    border: 1px solid #8cacbb;
+}
+
+td.listtablehead {
+	background: #CCCCCC;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid solid;
+	font-weight: bold;
+    padding: 0 0 0 0;
+}
+td.listtableheadfirst {
+	background: #CCCCCC;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid none;
+	font-weight: bold;
+    padding: 0 0 0 0;
+}
+
+td.listtablediv {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid solid;
+    padding: 0 0 0 0;
+}
+td.listtabledivfirst {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid none;
+    padding: 0 0 0 0;
+}
+
+
+td.listtable {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none solid;
+    padding: 0 0 0 0;
+}
+td.listtableodd {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none solid;
+    padding: 0 0 0 0;
+	background: #FFFFCC;
+}
+td.listtablefirst {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none none;
+    padding: 0 0 0 0;
+}
+td.listtablefirstodd {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none none;
+    padding: 0 0 0 0;
+	background: #FFFFCC;
+}
+
+#pageList .current_page{
+    color: #ff0000;
+}
+#pageList a {
+	text-decoration: underline;
+}
+
+/* Misc stuff to handle various needs */
+
+/* clearfix: thanks to: http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+

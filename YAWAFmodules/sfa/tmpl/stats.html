@@ -1,0 +1,53 @@
+<tmpl_include name="head.html">
+<tmpl_include name="sfa_tabs.html">
+
+<div id="sfa_stats">
+	<p>{{SFA Stats:}}</p>
+{{Pending:}} <tmpl_var pending_count> for $<tmpl_var pending_amount><br />
+{{Approved:}} <tmpl_var approved_count> for $<tmpl_var approved_amount><br />
+{{Retired:}} <tmpl_var retired_count> for $<tmpl_var retired_amount><br />
+</div>
+
+<form action="<tmpl_var _url>" method="post">
+<fieldset style="float:left;">
+<legend>Filter</legend>
+	Who: <input type="text" name="_search_on_who-c" value="<tmpl_var _search_on_who-c>"> (reg ex match; null for all) <br />
+ 	Status: <select name="_search_on_status-is"> <option value="">All<option <tmpl_var _search_on_status-is_pending>>pending <option <tmpl_var _search_on_status-is_submitted>>submitted <option <tmpl_var _search_on_currency-is_approved>> approved  <option <tmpl_var _search_on_status-is_retired>> retired </select><br />
+	Project: <input type="text" name="_search_on_project-c" value="<tmpl_var _search_on_project-c>"> (reg ex match; null for all) <br />
+	Currency: <select  name="_search_on_currency-is"><option value="">All<option <tmpl_var _search_on_currency-is_SFA:Time>>SFA:Time<option <tmpl_var _search_on_currency-is_SFA:Expenses>>SFA:Expenses<option <tmpl_var _search_on_currency-is_SFA:Quality>>SFA:Quality</select> <br />
+	Description: <input type="text" name="_search_on_description-c" value="<tmpl_var _search_on_description-c>"> (reg ex match; null for all) <br />
+	<input type="submit" value="{{Search}}">
+	<input type="hidden" name="p" value="<tmpl_var p>">
+	<input type="hidden" name="_order" value="<tmpl_var _order>">
+</fieldset>
+</form>
+
+<tmpl_if name="sfa">
+<table class="listtable" style="clear:both">
+  <tr>
+	<td class="listtableheadfirst"><a href="<tmpl_var _url>?p=sfa/stats&_order=w">{{Who}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=s">{{Status}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=p">{{Project}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=c">{{Currency}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=a">{{Amount}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=t">{{Description}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/stats&_order=d">{{Date}}</a></td>
+	<td class="listtablehead">&nbsp;</td>
+  </tr>
+<tmpl_loop name="sfa">
+<tr>
+	<td class="listtablefirst<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var who> </td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var status></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var project></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var currency></td>
+	<td align="right" class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var amount> </td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var description></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var date></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><a href="<tmpl_var _url>?p=sfa/details&id=<tmpl_var id>">{{details}}</a></td>
+  </tr>
+</tmpl_loop>
+</table>
+<tmpl_else>
+<h4 style="clear:both">{{No SFA with those criteria were found!}}</h4>
+</tmpl_if>
+<tmpl_include name="foot.html">

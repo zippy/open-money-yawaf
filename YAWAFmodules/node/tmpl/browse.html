@@ -1,0 +1,137 @@
+<tmpl_include name="head.html">
+
+<div style="border: 1px solid black; float: left; padding: 2px 2px 2px 2px">
+<strong>{{Options:}}</strong> 
+
+<tmpl_if show_contents>
+	<a href="?p=node/node<tmpl_if depth>&depth=<tmpl_var depth></tmpl_if>&show_contents=0&order=<tmpl_var order>">{{hide contents}}</a>
+<tmpl_else>
+	<a href="?p=node/node<tmpl_if depth>&depth=<tmpl_var depth></tmpl_if>&show_contents=1&order=<tmpl_var order>">{{show contents}}</a>
+</tmpl_if>
+
+{{Level-}}<a href="?p=node/node&depth=1&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{Only show level 1 nodes}}">1</a>
+<a href="?p=node/node&depth=2&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{Show nodes level 2 and higher}}">2</a>
+<a href="?p=node/node&depth=3&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{Show nodes level 3 and higher}}">3</a>
+<a href="?p=node/node&depth=4&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{Show nodes level 4 and higher}}">4</a>
+<a href="?p=node/node&depth=5&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{Show nodes level 5 and higher}}">5</a>
+
+{{Sort-}}
+<a href="?p=node/node&depth=<tmpl_var depth>&show_contents=<tmpl_var show_contents>&order=m" title="{{Sort by last modified date}}">mod</a>
+<a href="?p=node/node&depth=<tmpl_var depth>&show_contents=<tmpl_var show_contents>&order=m" title="{{Sort by creation date}}">create</a>
+<a href="?p=node/node&depth=<tmpl_var depth>&show_contents=<tmpl_var show_contents>&order=n" title="{{Sort by node name}}">name</a>
+</div>
+<script type="text/javascript">
+function saveNode(id) {
+	var theDiv = 'node_contents_'+id;
+	new Ajax.Updater(theDiv, '?', {
+	asynchronous:true,
+	method:'post',
+	onComplete:function(){ new Effect.Appear(theDiv);},
+	parameters:Form.serialize('edit_node_'+id)
+	})
+}
+
+function insertAfter(target,newNode) {
+   var parent     = target.parentNode;
+   var refChild = target.nextSibling;
+
+   if(refChild != null) {
+	parent.insertBefore(newNode, refChild);
+	}
+   else {
+	parent.appendChild(newNode);
+   }
+}
+
+function newNode(id) {
+	var theDiv = $('subnode_'+id);
+	var myAjax = new Ajax.Request( '?', {
+		asynchronous:true,
+		method:'post',
+		onComplete:function(req){
+			var e = document.createElement('div');
+			e.innerHTML = req.responseText;
+//			Element.addClassName(e,Element.classNames(theDiv));
+			Element.hide(theDiv);
+			theDiv.innerHTML = "\n";
+			var reg = /div id="node_([0-9]+)/i;
+			var ar = reg.exec(req.responseText);
+			var new_id = ar[1];
+			var reg2 = /node_level_([0-9]+)/i;
+			var ar2 = reg2.exec(req.responseText);
+			var level = ar2[1];
+			var node_div = e.childNodes[1];
+			var subnode_div = e.childNodes[3];
+			Element.removeClassName(node_div,'node_level_');
+			Element.removeClassName(subnode_div,'node_level_'+level);
+			Element.addClassName(node_div,'node_level_'+level);
+			Element.addClassName(subnode_div,'node_level_'+String(parseInt(level) + 1));
+			insertAfter(theDiv,e.childNodes[3]);
+			insertAfter(theDiv,e.childNodes[1]);						
+			Effect.Appear('node_contents_'+new_id);
+		},
+		parameters:Form.serialize('subnode_'+id)
+	});
+}
+			
+function deleteNode(id) {
+	if (confirm("{{Are you sure you want to delete this item?}}")) {
+		var theDiv = 'node_'+id;
+		Effect.BlindUp(theDiv);
+		new Ajax.Request('?m=del&p=node/node&confirm=1&id='+id, {asynchronous:true, method:'get'});
+	}
+}
+function showNode(id) {
+	var theDiv = 'node_contents_'+id;
+  	new Ajax.Updater(theDiv, '?p=node/node&m=render&id='+id, {asynchronous:true, method:'get',onComplete:function(){ new Effect.Appear(theDiv);},evalScripts:true});
+}
+function doRenameNode(id) {
+	var theDiv = 'name_'+id;
+	new Ajax.Updater(theDiv, '?', {
+	asynchronous:true,
+	method:'post',
+	onComplete:function(){ $('e_name_'+id).innerHTML="";new Element.show(theDiv);},
+	parameters:Form.serialize('rename_node_'+id)
+	})
+}
+
+function rename_Node(id) {
+	var theDiv = 'e_name_'+id;
+  	new Ajax.Updater(theDiv, '?p=node/rename&id='+id, {asynchronous:true, method:'get',onComplete:function(){ new Element.hide($('name_'+id)); new Element.show(theDiv);} });
+}
+function editNode(id) {
+	var theDiv = 'node_contents_'+id;
+  	new Ajax.Updater(theDiv, '?p=node/node&edit_contents=1&m=show&id='+id, {asynchronous:true, method:'get',onComplete:function(){ new Effect.Appear(theDiv);},evalScripts:true});
+}
+function createNode(id,level_plus_one) {
+	var theDiv = 'subnode_'+id;
+  	new Ajax.Updater(theDiv, '?p=node/node&edit_contents=1&edit_name=1&edit_parent=1&m=show&parent_id='+id+'&parent_id_val='+id+'&level_plus_one='+level_plus_one, {asynchronous:true, method:'get',onComplete:function(){ new Effect.BlindDown(theDiv);},evalScripts:true});
+}
+function toggleContents(id) {
+	var is_visible = Element.visible('node_contents_'+id);
+	$('name_'+id).title=is_visible?'{{Click to show contents}}':'{{Click to hide contents}}';
+	if (is_visible) {
+		Element.toggle('node_contents_'+id);
+	}
+	else {
+		Effect.Appear('node_contents_'+id);
+	}
+//	Element.toggle('node_contents_'+id);
+}
+</script>
+
+<tmpl_if name="nodes">
+<br />
+<br />
+
+<span class="node_control"><a href="#" onClick="createNode(0);return false;">{{Add a new top level item}}</a></span>
+<div id="subnode_0" style="display:none"  class="node_level_0"></div>
+
+<tmpl_loop name="nodes">
+	<tmpl_include name="view.html">
+</tmpl_loop>
+<tmpl_else>
+{{No items}}
+</tmpl_if>
+
+<tmpl_include name="foot.html">

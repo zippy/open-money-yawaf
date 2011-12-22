@@ -1,0 +1,87 @@
+<tmpl_include name="head.html">
+<tmpl_include name="sfa_tabs.html">
+
+<div id="sfa_stats" style="display:none">
+	<p>{{Assesment}}</p>
+	Yes: 1<br />
+	No: 1<br />
+	Conditional: 1<br />
+	Pending: 2
+</div>
+
+<div id="sfa_data">
+	<div id="sfa_data_title">{{$}}<tmpl_var name="amount"> (<tmpl_var name="currency">) </div>
+	<br /> {{by}} <tmpl_var name="who"> {{in project}} <tmpl_var name="project">
+	<br /> <b>{{Description:}}</b> <tmpl_var name="description">
+	<tmpl_if project_name> 
+	<tmpl_loop project_name> <tmpl_var name> </tmpl_loop>
+	</tmpl_if>
+	<tmpl_if notes>
+	<br />
+	<b>{{Notes/Conditions:}}</b><br />  <tmpl_var name="notes">
+	</tmpl_if>
+	<div id="sfa_data_mod">
+	<br />
+	{{Created on:}} <tmpl_var name="created"> {{last modified}} <tmpl_var name="created">
+	<br />
+	</div>
+</div>
+<tmpl_unless is_my_sfa>
+<div id="sfa_myreview">
+	<form action="<tmpl_var _url>" method=post>
+	<fieldset>		
+	Approve:<tmpl_var name>
+	<br>
+	Comments:<br>
+	<tmpl_var contents>
+	<br>
+	<tmpl_var parent_id>
+	<input type=submit value="{{Submit}}">
+	<input type=hidden name="m" value="submit">
+	<input type=hidden name="p" value="sfa/review">
+	<input type=hidden name="id" value="<tmpl_var name="id">">
+	</fieldset>
+	</form>
+</div>
+</tmpl_unless>
+
+<div id="sfa_reviews">
+<tmpl_if reviews>
+
+{{Reviews:}}
+<tmpl_loop reviews>
+	<tmpl_if is_review>
+		<p class="sfa_review_review"> 
+		<span class="sfa_details">
+		<span class="sfa_control">
+		<a href="?p=sfa/comment&m=show&parent_id=<tmpl_var id>&review_id=<tmpl_var review_id>&sfa_id=<tmpl_var sfa_id>" title="{{Add a comment}}">+</a>
+		</span>
+		<span class="sfa_control">
+		<a href="?p=sfa/review&m=history&id=<tmpl_var id>&order=<tmpl_var order>&review_id=<tmpl_var review_id>&sfa_id=<tmpl_var sfa_id>" title="{{view history}}">h</a>
+		</span>
+		</span>
+
+		<tmpl_var name=fname> <tmpl_var name=lname> <span class="sfa_review_approval sfa_review_approval_<tmpl_var name>"><tmpl_var name></span> <tmpl_var name=modified><br />
+		<tmpl_var contents>
+	<tmpl_else>
+		<p class="sfa_review_comment"> 
+		<span class="sfa_details">
+		<tmpl_var name=fname> <tmpl_var name=lname> <tmpl_var name=modified>
+		<span class="sfa_control">
+		<a href="?p=sfa/comment&m=show&review_id=<tmpl_var review_id>&sfa_id=<tmpl_var sfa_id>&id=<tmpl_var id>" title="{{Edit a comment}}">e</a>
+		</span>
+		<span class="sfa_control">
+		<a href="?p=sfa/comment&m=history&id=<tmpl_var id>&order=<tmpl_var order>&review_id=<tmpl_var review_id>&sfa_id=<tmpl_var sfa_id>" title="{{view comment history}}">h</a>
+		</span>
+		</span>
+		<tmpl_var contents>
+	</tmpl_if>
+
+	</p>
+</tmpl_loop>
+<tmpl_else>
+{{No reviews yet!}}
+</tmpl_if>
+</div>
+
+<tmpl_include name="foot.html">

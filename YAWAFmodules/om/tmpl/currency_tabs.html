@@ -1,0 +1,14 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%" class="clear">
+  <tr>
+    <td nowrap="nowrap">
+     <div id="tabs-bar">
+     <ul id="tabs">
+      <li id="tab-join" title="{{Join a currency}}" <tmpl_if p_om/currency_join>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/currency_join">{{my}}</a></li>
+	<tmpl_if has_currencies>
+      <li id="tab-my" title="{{Administer your currencies}}" <tmpl_if p_om/currency_admin>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/currency_admin">{{manage}}</a></li>
+	</tmpl_if>
+      <li id="tab-create" title="{{Create a new currency}}" <tmpl_if p_om/currency_create>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/currency_create">{{create}}</a></li>
+    </ul>
+       </div></td>
+  </tr>
+</table>

@@ -1,0 +1,68 @@
+<tmpl_include name="head.html">
+<tmpl_include name="domain_tabs.html">
+
+<tmpl_unless can_admin>
+	There are no domains you can administer!
+<tmpl_else>
+	<form method=post name="accountlistform">
+	<h3>{{Grant Permissions for Domain:}} <tmpl_var domain_id></h3>
+	
+	<table cellpadding="0" cellspacing="0" border=0><tr><td>
+	<fieldset>
+	<legend>{{Search}}</legend>
+	<table cellpadding="2" cellspacing="0" border=0>
+	<tr><td>
+	<select name="_search_on">
+	<option value="m-c" <tmpl_var name=_search_on_m-c>>{{Full name contains}}</option>
+	<option value="m-b" <tmpl_var name=_search_on_m-b>>{{Full name begins with}}</option>
+	<option value="a-c" <tmpl_var name=_search_on_a-c>>{{Username contains}}</option>
+	<option value="a-b" <tmpl_var name=_search_on_a-b>>{{Username begins with}}</option>
+	<option value="e-c" <tmpl_var name=_search_on_e-c>>{{E-mail contains}}</option>
+	<option value="e-b" <tmpl_var name=_search_on_e-b>>{{E-mail begins with}}</option>
+	<option value="" <tmpl_var name=_search_on_>>{{Show all}}</option>
+	</select>
+	<input type="text" name="_search_for" value="<tmpl_var name=_search_for>">
+	</td></tr>
+	{{Order by:}} <select name="_order">
+	<option value="n" <tmpl_var name=_order_n>>{{Name}}</option>
+	<option value="a" <tmpl_var name=_order_a>>{{Username}}</option>
+	<option value="c" <tmpl_var name=_order_c>>{{Create date}}</option>
+	</select>
+	
+	<input type="hidden" name="p" value="om/domain_user_perms">
+	</td></tr>
+	<tr><td>
+	<input type="submit" name="submit" value="{{Search}}">
+	</td></tr></table>
+	</fieldset>
+	</td></tr></table>
+	</form>
+	
+	<tmpl_unless _no_search_done>
+	<br>
+	<tmpl_if _search_failed><i>{{No users found}}</i></tmpl_if>
+		<tmpl_unless _search_failed>
+			<I>{{Users found:}} <tmpl_var _count></I>
+			<form method=post>
+			<input type="hidden" name="p" value="om/domain_user_perms">
+			<input type="hidden" name="m" value="submit">
+			<input type="hidden" name="domain_id" value="<tmpl_var d_id>">
+			
+			<table class="listtable">
+			<tmpl_loop name="users">
+			<tr><td class="listtablefirst<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_if class><tmpl_var class><tmpl_else>&nbsp;</tmpl_if></td>
+				<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <input type="checkbox" name="user_ids" value="<tmpl_var user_id>"></td>
+				<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var name=fname> <tmpl_var name=lname> (<tmpl_var name=name>)</td>
+			</tr>
+			</tmpl_loop>
+			</table>
+
+			{{For Checked Users, Set Permission To:}} <tmpl_var new_class>
+			<p>
+			<input type="submit" value="{{Submit}}" /> 
+			</form>
+		</tmpl_unless>
+	</tmpl_unless>
+</tmpl_unless>
+
+<TMPL_INCLUDE NAME="foot.html">

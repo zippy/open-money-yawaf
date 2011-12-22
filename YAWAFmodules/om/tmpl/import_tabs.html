@@ -1,0 +1,11 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+		<li id="tab-account" title="{{Import Accounts}}" <tmpl_if p_om/import_accounts>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/import_accounts">{{accounts}}</a></li>
+		<li id="tab-transactions" title="{{Import Transactions}}" <tmpl_if p_om/import_transactions>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/import_transactions">{{transactions}}</a></li>
+    </ul>
+        </div></td>
+  </tr>
+</table>

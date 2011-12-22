@@ -1,0 +1,12 @@
+To: <tmpl_var to>
+From: <tmpl_var from>
+Subject: open money password
+
+Your user name is: <tmpl_var username>
+Your password is: <tmpl_var password>
+
+The Web site can be found at <tmpl_var _url>
+
+You can change your password at:
+
+<tmpl_var _url>?p=accountChange

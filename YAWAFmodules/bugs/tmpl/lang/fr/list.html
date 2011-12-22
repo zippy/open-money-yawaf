@@ -1,0 +1,32 @@
+<tmpl_include name="head.html">
+
+<h3>Bugs et liste des tâches</h3>
+
+<a href="?p=bugs/create">Ajouter un nouveau bug ou tâche</a> ou <A HREF="#changelog">aller à la fin</A>
+<P>
+<tmpl_if name="bugs">
+<table border=1 bordercolor="#000066" cellspacing=0 cellpadding=4>
+<tr>
+<th>Etat</th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=w">Pour</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=c">Code</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=n">Nom</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=t">Type</a></th>
+<th>Date <a href="<tmpl_var _url>?p=bugs/list&_order=d"><img border=0 src="art/triangle_dn.gif"></a> <a href="<tmpl_var _url>?p=bugs/list&_order=r"><img border=0 src="art/triangle_up.gif"></a></th>
+</tr>
+<tmpl_loop name="bugs">
+<tr>
+	<td> <tmpl_var name=status></td>
+	<td> <tmpl_var name=who></td>
+	<td> <tmpl_var name=code></td>
+	<td> <a href="<tmpl_var _url>?p=bugs/edit&id=<TMPL_VAR NAME=id>"><tmpl_var name=itemname><a/></td>
+	<td> <tmpl_var name=type></td>
+	<td> <tmpl_var name=date></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_else>
+Aucun résultat
+</tmpl_if>
+<a name="changelog"></A>
+<tmpl_include name="foot.html">

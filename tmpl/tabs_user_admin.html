@@ -1,0 +1,19 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+	<li id="tab-list" title="{{View Users}}" <tmpl_if p_accountList>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountList&_search_on=<TMPL_VAR NAME=_search_on>&_search_for=<TMPL_VAR ESCAPE=URL NAME=_search_for>&_order=<TMPL_VAR NAME=_order>">{{Users}}</a></li>
+<tmpl_if user_priv_createact>
+		<li id="tab-new" title="{{Create New User}}" <tmpl_if p_accountNew>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountNew">{{New}}</a></li>
+</tmpl_if>
+<tmpl_if p_accountPrivs>
+		<li id="tab-privs" title="{{Set User Privileges}}" class="nolinktab"><tmpl_var name="name">{{'s privs}}</li>
+</tmpl_if>
+<tmpl_if p_account>
+		<li id="tab-edit" title="{{Edit User Info}}" class="nolinktab"><tmpl_var name="name">{{'s info}}</li>
+</tmpl_if>
+    </ul>
+        </div></td>
+  </tr>
+</table>

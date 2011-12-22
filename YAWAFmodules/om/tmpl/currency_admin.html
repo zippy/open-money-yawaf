@@ -1,0 +1,110 @@
+<tmpl_include name="head.html">
+<tmpl_include name="currency_tabs.html">
+<form method=post name="admin" id="admin">
+<h3>{{Administer Currency:}} <tmpl_var admin_currency></h3>
+
+<p>
+{{Total system volume:}} <tmpl_var system_volume_text> {{in}} <tmpl_var system_transactions> {{transactions}}
+</p>
+
+<tmpl_if transaction_reversed>
+<p>{{The transaction with id}} <tmpl_var transaction_id> {{was reversed.}}</p>
+</tmpl_if>
+<tmpl_if trade_recorded>
+<p>{{The trade between}} <tmpl_var t_from> {{and}} <tmpl_var t_to> {{in the amount}} <tmpl_var t_amt> {{was recorded.}}</p>
+</tmpl_if>
+
+<fieldset>
+<legend> {{Record a Trade:}}</legend>
+<input type="hidden" name="transaction_id" value="<tmpl_var transaction_id>">
+<input type="hidden" name="action">
+<tmpl_if trading_error><br><tmpl_var trading_error></tmpl_if>
+<table class="listtable">
+  <tr>
+	<td class="listtableheadfirst">{{From}}</td>
+	<td class="listtablehead">{{To}}</td>
+	<td class="listtableheadfirst">{{For}}</td>
+	<td class="listtablehead">{{Amount}}</td>
+	<td class="listtablehead">{{Taxable}}</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td class="listtablediv"> <tmpl_var trade_from><tmpl_var error.trade_from></td>
+	<td class="listtablediv"> <tmpl_var trade_to><tmpl_var error.trade_to></td>
+	<td class="listtablediv"><tmpl_var trade_for><tmpl_var error.trade_for></td>
+	<td class="listtablediv"> <tmpl_var trade_amount> <tmpl_var error.trade_amount></td>
+	<td class="listtablediv"><tmpl_var trade_tax_status><tmpl_var error.trade_tax_status></td>
+	<td class="listtabledivfirst"><input type="button" onClick="document.admin.action.value='trade';document.admin.submit()" value="{{Record}}" name="x" /></td>
+  </tr>
+</table>
+</fieldset>
+
+<fieldset>
+<legend> {{Reverse a Trade:}}</legend>
+<label>{{Transaction ID:}} <tmpl_var reverse_tx_id> <tmpl_var error.reverse_tx_id></label><br />
+</label>{{Comment:}} <tmpl_var reverse_tx_comment></label><br />
+<input type="button" onClick="document.admin.action.value='reverse';document.admin.submit()" value="{{Reverse}}" name="y">
+</fieldset>
+<!--
+<br /> 
+
+Blacklist Accounts [edit]
+-->
+
+<input type="hidden" name="p" value="om/currency_admin">
+<input type="hidden" name="m" value="submit">
+</form>
+
+<tmpl_unless history>
+{{This currency has no trades in any ledger}}
+<tmpl_else>
+
+{{Transactions:}}
+<table class="listtable">
+  <tr>
+	<td class="listtableheadfirst">{{Date}}</td>
+	<td class="listtablehead">{{For}}</td>
+	<td class="listtablehead">{{From}}</td>
+	<td class="listtablehead">{{To}}</td>
+	<td class="listtablehead">{{Amount}}</td>
+	<td class="listtablehead">{{Tax-Status}}</td>
+	<td class="listtablehead">{{Transaction ID}}</td>
+  </tr>
+<tmpl_loop history>
+  <tr>
+	<td class="listtablefirst<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var trade_date> </td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var trade_for></td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_from></td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_to></td>
+	<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_amount> </td>
+	<td align="center" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_tax> </td>
+	<td align="center" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_id> </td>
+  </tr>
+</tmpl_loop>
+</table>
+<tmpl_include name="pageList.html">
+
+<hr>
+
+{{Accounts:}}
+<table class="listtable">
+  <tr>
+	<td class="listtableheadfirst">{{Account}}</td>
+	<td class="listtablehead">{{Balance}}</td>
+	<td class="listtablehead">{{Volume}}</td>
+	<td class="listtablehead">{{Last Transaction}}</td>
+  </tr>
+<tmpl_loop accounts>
+  <tr>
+	<td class="listtablefirst<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var account> </td>
+	<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var balance></td>
+	<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var volume></td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var last></td>
+  </tr>
+</tmpl_loop>
+</table>
+
+</tmpl_unless>
+
+
+<TMPL_INCLUDE NAME="foot.html">

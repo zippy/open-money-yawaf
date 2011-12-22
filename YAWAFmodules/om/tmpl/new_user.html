@@ -1,0 +1,25 @@
+<tmpl_include name="head.html">
+<p>
+
+<tmpl_if success>
+	{{A message has been sent to}} <tmpl_var password_email> {{with your password.}}
+<tmpl_else>
+	<tmpl_if failure>
+		<span class="errortext"><tmpl_var error></span>
+	<tmpl_else>
+		<form action="" method=post>
+		<fieldset>
+			<legend>{{New User Account}}</legend>
+			<nobr><label for="name">{{User name:}}</label> <tmpl_var name="name"> <tmpl_var name="error.name"></nobr> <br />
+			<nobr><label for="fname">{{First name:}}</label> <tmpl_var name="fname"> <tmpl_var name="error.fname"></nobr> <br />
+			<nobr><label for="lname">{{Last name:}}</label> <tmpl_var name="lname"> <tmpl_var name="error.lname"></nobr> <br />
+			<nobr><label for="email">{{E-mail:}}</label> <tmpl_var name="email"> <tmpl_var name="error.email"></nobr> <br />
+			<input type=submit value="{{Request User Account}}">
+			<input type=hidden name="m" value="submit">
+			<input type=hidden name="p" value="<tmpl_var p>">
+			<input type=hidden name="_ticket" value="<tmpl_var name="_ticket">">
+		</fieldset>
+		</form>
+	</tmpl_if>
+</tmpl_if>
+<tmpl_include name="foot.html">

@@ -1,0 +1,28 @@
+<tmpl_include name="head.html">
+
+<a href="?p=node/create">{{Add a new node}}</a>
+
+<tmpl_if name="nodes">
+<table class="listtable">
+<tr>
+<td class="listtableheadfirst"><a href="<tmpl_var _url>?p=node/list&_order=n">{{Name}}</a></th>
+<td class="listtablehead"><a href="<tmpl_var _url>?p=node/list&_order=t">{{Type}}</a></th>
+<td class="listtableheadfirst">{{Modified}} <a href="<tmpl_var _url>?p=node/list&_order=m"><img border=0 src="art/triangle_dn.gif"></a> <a href="<tmpl_var _url>?p=node/list&_order=r"><img border=0 src="art/triangle_up.gif"></a></th>
+<td class="listtablehead"><a href="<tmpl_var _url>?p=node/list&_order=t">{{Parent ID}}</a></th>
+<td class="listtablehead"><a href="<tmpl_var _url>?p=node/list&_order=t">{{ID}}</a></th>
+</tr>
+<tmpl_loop name="nodes">
+<tr>
+	<td class="listtablefirst<tmpl_unless name=__odd__>odd</tmpl_unless>"> <a href="<tmpl_var _url>?p=node/edit&id=<TMPL_VAR NAME=id>"><tmpl_var name=name><a/></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var name=type></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var name=modified></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var name=parent_id></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var name=id></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_else>
+{{No items}}
+</tmpl_if>
+
+<tmpl_include name="foot.html">

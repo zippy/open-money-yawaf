@@ -1,0 +1,71 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+<form action="<tmpl_var name="_url">" method="post" name="act">
+
+<tmpl_if user_priv_admin>
+<table  border="0" cellspacing="0" cellpadding="0">
+<tr><td>
+<fieldset>
+<legend><font color="#336699">{{For administrators only}}</font></legend>
+<tmpl_if lastloginip>{{Last log in:}} <tmpl_var name="lastLogin"> {{from}} <tmpl_var name="lastLoginIP"><br></tmpl_if>
+{{Created}} <tmpl_var name="created">
+
+<tmpl_if user_priv_admin>
+	<br><img src="/images/spacer.gif" height="3"><br>
+	<a href="<tmpl_var name="_url">?m=del&id=<tmpl_var name="id">&p=account&_search_on=<tmpl_var name=_search_on>&_search_for=<tmpl_var name=_search_for>&_search_on_t-is=<tmpl_var name=_search_on_t-is>&_order=<tmpl_var name=_order>">{{Delete this user}}</a>
+</tmpl_if>
+<p>
+<tmpl_unless password>
+<input type="checkbox" name="_activate" value="1"> {{Activate account}}
+<p>
+<tmpl_else>
+<input type="checkbox" name="_resetpass" value="1"> {{Reset password}}  
+<input type="checkbox" name="_deletepass" value="1"> {{Delete password (deactivate account)}}
+<p>
+</tmpl_unless>
+</fieldset>
+
+</td></tr></table>
+<br>
+</tmpl_if>
+
+
+<tmpl_if _errorcount>
+	<p class="errortext"> {{There are some errors in the form!}}</p>
+</tmpl_if>
+
+<table>
+<tr><td align="left">{{Username:}} </td><td><tmpl_var name="name"><tmpl_var name="error.name"></td></tr>
+<tr><td align="left">{{First name:}} </td><td><tmpl_var name="fname"><tmpl_var name="error.fname"></td></tr>
+<tr><td align="left">{{Last name:}} </td><td><tmpl_var name="lname"><tmpl_var name="error.lname"></td></tr>
+<tr><td align="left">{{E-mail:}} </td><td><tmpl_var name="email"><tmpl_var name="error.email"></td></tr>
+<tr><td align="left">{{Phone:}} </td><td><tmpl_var name="phone"><tmpl_var name="error.phone"></td></tr>
+<tr><td align="left">{{Phone 2:}} </td><td><tmpl_var name="phone2"><tmpl_var name="error.phone2"></td></tr>
+<tr><td align="left">{{Address 1:}} </td><td><tmpl_var name="address1"><tmpl_var name="error.address1"></td></tr>
+<tr><td align="left">{{Address 2:}} </td><td><tmpl_var name="address2"><tmpl_var name="error.address2"></td></tr>
+<tr><td align="left">{{City:}} </td><td><tmpl_var name="city"><tmpl_var name="error.city"></td></tr>
+<tr><td align="left">{{State:}} </td><td><tmpl_var name="state"><tmpl_var name="error.state"></td></tr>
+<tr><td align="left">{{Zip/Postal Code:}} </td><td><tmpl_var name="zip"><tmpl_var name="error.zip"></td></tr>
+<tr><td align="left">{{Country:}} </td><td><tmpl_var name="country"><tmpl_var name="error.country"></td>
+</tr>
+</table>
+
+<tmpl_if user_priv_admin>
+<p>
+<b>{{Administrator Notes:}}</b> <br />
+<tmpl_var name="notes"><br />
+</tmpl_if>
+
+<input type=submit value="{{Update account}}">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="account">
+<input type=hidden name="r" value="<tmpl_var r>">
+<input type=hidden name="t">
+<input type=hidden name="_search_on" value="<tmpl_var name=_search_on>">
+<input type=hidden name="_search_for" value="<tmpl_var name=_search_for>">
+<input type=hidden name="_search_on_t-is" value="<tmpl_var name=_search_on_t-is>">
+<input type=hidden name="_order" value="<tmpl_var name=_order>">
+</form>
+<tmpl_include name="foot.html">

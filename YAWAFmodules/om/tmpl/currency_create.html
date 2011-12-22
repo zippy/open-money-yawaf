@@ -1,0 +1,30 @@
+<tmpl_include name="head.html">
+<tmpl_include name="currency_tabs.html">
+
+<h3>{{Create A New Currency}}</h3>
+<form action="<tmpl_var _url>" method="post" name="currency" id="currency">
+<input type="hidden" name="p" value="om/currency_create">
+<input type="hidden" name="m" value="submit">
+<fieldset>
+<tmpl_if domain>
+<label>{{In Domain:}} <tmpl_var domain><tmpl_var error.domain></label>
+<br />
+</tmpl_if>
+<label>{{Short name:}} <tmpl_var currency_name><tmpl_var error.currency_name></label>
+<br />
+<input type="checkbox" name="advanced" value="1" onClick="javascript:if(document.currency.advanced.checked) {document.getElementById('simple').style.display='none';document.getElementById('advanced').style.display='block'} else {document.getElementById('advanced').style.display='none';document.getElementById('simple').style.display='block'}"> {{Use Advanced Interface}}
+<div id="simple">
+<label>{{Long name:}} <tmpl_var name><tmpl_var error.name></label>
+<br />
+<label>{{Description:}} <br /><tmpl_var description><tmpl_var error.description></label>
+<br />
+<label>{{Type:}} <tmpl_var type><tmpl_var error.type></label>
+<lable>{{Unit of Measure:}} <tmpl_var unit><tmpl_var error.unit></label>
+</div>
+<div id="advanced" style="display:none;">
+<label>{{Text Specification:}} <br /><tmpl_var currency_spec><tmpl_var error.currency_spec></label>
+</div>
+<input type="submit" value="{{Create}}" />
+</fieldset>
+</form>
+<TMPL_INCLUDE NAME="foot.html">

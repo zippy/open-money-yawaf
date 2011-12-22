@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+        <channel>
+                        <description></description>
+
+                <title><tmpl_var title></title>
+<tmpl_if subtitle>        <description><tmpl_var subtitle></description>
+</tmpl_if>        <link> <tmpl_var _url_full><tmpl_var link> </link>
+                <lastBuildDate><tmpl_var updated></lastBuildDate>
+<tmpl_loop items>
+                <item>
+                        <title><tmpl_var entry_title></title>
+			<link><tmpl_var _url_full><tmpl_var entry_link><tmpl_var id>&amp;review_id=<tmpl_var review_id></link>
+			<guid><tmpl_var _url_full><tmpl_var entry_link><tmpl_var id>&amp;review_id=<tmpl_var review_id>&amp;__b=<tmpl_var entry_updated></guid>
+                        <pubDate><tmpl_var entry_updated></pubDate>
+                        <description><tmpl_var summary></description>
+                </item>
+</tmpl_loop>
+        </channel>
+</rss>

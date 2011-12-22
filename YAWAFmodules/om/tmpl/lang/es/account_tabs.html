@@ -1,0 +1,25 @@
+<br />
+<tmpl_if account>
+<form method=post name="act">
+</tmpl_if>
+<table border="0" cellspacing="0" cellpadding="4" width="100%" class="clear">
+  <tr>
+    <td nowrap="nowrap"><ul id="tabs">
+		<li id="title" class="tab-title">
+<tmpl_if account>
+<input type="hidden" name="p" value="<tmpl_var p>"><label> Cuenta: <tmpl_var account></label>
+<tmpl_else>
+Cuentas:
+</tmpl_if>
+</li>
+      <li id="tab-trading" title="Entrar intercambios" <tmpl_if p_om/account_trading>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_trading">intercambio</a></li>
+      <li id="tab-history" title="Ver la historia de su cuenta" <tmpl_if p_om/account_history>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_history">historia</a></li>
+      <li id="tab-prefs" title="Cambiar las opciones the su cuenta" <tmpl_if p_om/account_prefs>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_prefs">opciones</a></li>
+      <li id="tab-new" title="Crear una neueva cuenta" <tmpl_if p_om/account_new>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_new">crear</a></li>
+    </ul>
+        <div id="tabs-bar"></div></td>
+  </tr>
+</table>
+<tmpl_if account>
+</form>
+</tmpl_if>

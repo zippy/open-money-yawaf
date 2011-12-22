@@ -1,0 +1,28 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%" class="clear">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+
+	<li <tmpl_if section_rmap>class="selected"</tmpl_if>><a href="?p=node/node" title="{{Road Map}}">{{projects}}</a>
+	</li>		
+      <li id="tab-dashboard" title="{{SFA workspace}}" <tmpl_if p_sfa/list>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=sfa/list">{{sfa}}</a></li>
+      <li id="tab-new" title="{{Add a new SFA}}" <tmpl_if p_sfa/create>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=sfa/create">{{add}}</a></li>
+	  <tmpl_if p_sfa/review>
+      <li id="tab-review" title="{{Review submitted SFA}}" class="nolinktab">{{review}}</li>
+      </tmpl_if>
+	  <tmpl_if p_sfa/edit>
+      <li id="tab-edit" title="{{Edit submitted SFA}}" class="nolinktab">{{edit}}</li>
+      </tmpl_if>
+	  <tmpl_if p_sfa/details>
+      <li id="tab-details" title="{{Admin edit of an SFA}}" class="nolinktab">{{details}}</li>
+      </tmpl_if>
+      <li id="tab-status" title="{{Admin SFA statistics}}" <tmpl_if p_sfa/stats>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=sfa/stats">{{admin}}</a></li>
+	  <tmpl_if p_sfa/comment>
+      <li id="tab-comment" title="{{Add SFA review comment}}"  class="nolinktab">{{comment}}</li>
+      </tmpl_if>
+    </ul>
+
+        </div></td>
+  </tr>
+</table>

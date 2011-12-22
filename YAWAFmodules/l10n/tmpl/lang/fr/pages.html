@@ -1,0 +1,43 @@
+<tmpl_include name="head.html">
+
+<h3>Internationalisation(<tmpl_var lang>)</h3>
+
+<tmpl_if m_show>
+<table border=0  cellspacing=2 cellpadding=1>
+<tr>
+<th>Localized</th>
+<th>Modèle</th>
+</tr>
+<tmpl_loop name="templates">
+<tr>
+	<td align="center"><tmpl_if notlocalized>&nbsp;<tmpl_else><tmpl_if notcompleted>partial<tmpl_else>oui</tmpl_if></tmpl_if></td>
+	<td><a href="<tmpl_var _url>?p=<tmpl_var p>&m=edit&t=<tmpl_var ESCAPE=URL name>"><tmpl_var name></a></td>
+</tr>
+</tmpl_loop>
+</table>
+</tmpl_if>
+
+<tmpl_if m_edit>
+<div id="localization_edit">
+<h4> Modèle: <tmpl_var t></h4>
+<form action="<tmpl_var _url>" method=post>
+<fieldset>
+<tmpl_loop name="fields">
+<label><tmpl_var phrase><br /><tmpl_var field></label><br />
+</tmpl_loop>
+</fieldset>
+<input type="hidden" name="p" value="<tmpl_var p>">
+<input type="hidden" name="m" value="submit">
+<input type="hidden" name="t" value="<tmpl_var t>">
+<input type="hidden" name="r" value="<tmpl_var r>">
+<input type="submit" name="submit" value="Enregistrer">
+</form>
+</div>
+
+<div id="localization_template">
+<p class="localization_template_header">Contenu du modèle:</p>
+<tmpl_var tmpl>
+</div>
+</tmpl_if>
+
+<tmpl_include name="foot.html">

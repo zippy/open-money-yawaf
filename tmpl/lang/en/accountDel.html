@@ -1,0 +1,19 @@
+<TMPL_INCLUDE NAME="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+<H3>Effacer un utilisateur</H3>
+          
+<FORM action="" method=post>
+Etes-vous certain(e) de vouloir effacer cet utilisateur ?<BR>
+<INPUT TYPE=Submit name=confirm value="Yes">
+<INPUT TYPE=Submit name=cancel value="No">
+<INPUT TYPE=HIDDEN name="m" value="del">
+<INPUT TYPE=HIDDEN name="p" value="account">
+<INPUT TYPE=HIDDEN name="r" value="<tmpl_var name="r">">
+<INPUT TYPE=HIDDEN name="id" value="<tmpl_var name="id">">
+<INPUT TYPE=HIDDEN name="_search_on" value="<tmpl_var name=_search_on>">
+<INPUT TYPE=HIDDEN name="_search_for" value="<tmpl_var name=_search_for>">
+<INPUT TYPE=HIDDEN name="_search_on_t-is" value="<tmpl_var name=_search_on_t-is>">
+<INPUT TYPE=HIDDEN name="_order" value="<tmpl_var name=_order>">
+</FORM>
+<TMPL_INCLUDE NAME="foot.html">

@@ -1,0 +1,6 @@
+To: <tmpl_var to_fname> <tmpl_var to_lname> <<tmpl_var to_email>>
+From: <tmpl_var from_fname> <tmpl_var from_lname> <<tmpl_var from_email>>
+CC: <tmpl_var cc_email>
+Subject: open money project mail: <tmpl_var subject>
+
+<tmpl_var body>

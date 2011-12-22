@@ -1,0 +1,18 @@
+To: <tmpl_var from>
+From: <tmpl_var to>
+Subject: open money demonstration user information
+
+<tmpl_if multiple_accounts>
+Your have more than one account on the open money demonstration with this e-mail address: <tmpl_var to>.
+
+Your accounts are:
+<tmpl_else>
+Your account information for the open money demonstration site is:
+</tmpl_if>
+
+<tmpl_loop accounts>
+account name: <tmpl_var name>
+<tmpl_if password>password: <tmpl_var password><tmpl_else>Your account has not yet been activated. When it is activated, you will get an e-mail message with your temporary password.</tmpl_if>
+</tmpl_loop>
+
+You can log in at at <tmpl_var _url>

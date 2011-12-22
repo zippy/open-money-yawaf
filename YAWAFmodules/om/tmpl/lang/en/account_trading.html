@@ -1,0 +1,71 @@
+<tmpl_include name="head.html">
+<tmpl_include name="account_tabs.html">
+
+<tmpl_unless account>
+<p style="clear:both;">You have not yet created a trading account.  </p>
+<a href="<tmpl_var _url>?p=om/account_new">Create a trading account</a> 
+<tmpl_else>
+
+<tmpl_unless trade_currency>
+<p style="clear:both;">This account is not a member of any currency.  </p>
+<a href="<tmpl_var _url>?p=om/currency_join">Join a currency</a> 
+<tmpl_else>
+
+<div id="currency-info">
+<form method=post name="trade" id="trade">
+Currency: <tmpl_var trade_currency>
+<tmpl_if summary>
+<tmpl_loop summary>
+ Balance:<tmpl_var balance> Volume: <tmpl_var volume>
+</tmpl_loop>
+</tmpl_if>
+</div>
+
+<input type="hidden" name="p" value="om/account_trading">
+<input type="hidden" name="m" value="submit">
+<input type="hidden" name="transaction_id" value="<tmpl_var transaction_id>">
+<tmpl_if trading_error><br><tmpl_var trading_error></tmpl_if>
+<table class="listtable" style="clear:both;">
+  <tr>
+	<td class="listtableheadfirst">Date</td>
+	<td class="listtableheadfirst">Description</td>
+	<td class="listtablehead">With</td>
+	<td class="listtablehead">Amount</td>
+	<td class="listtablehead">Taxable</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td class="listtabledivfirst">&nbsp;</td>
+	<td class="listtablediv"><tmpl_var trade_for><tmpl_var error.trade_for></td>
+	<td class="listtablediv"> <tmpl_var trade_with><tmpl_var error.trade_with> <a href="">+</a></td>
+	<td class="listtablediv"> <tmpl_var trade_amount> <tmpl_var error.trade_amount></td>
+	<td class="listtablediv"><tmpl_var trade_tax_status><tmpl_var error.trade_tax_status></td>
+	<td class="listtabledivfirst"><input type="submit" value="Record" /></td>
+  </tr>
+<tmpl_if summary>
+  <tr>
+  	<td colspan="6" class="listtabledivfirst"><font size="-2">Last 5 transactions</font></td>
+  </tr>
+<tmpl_loop history>
+  <tr>
+	<td class="listtablefirst<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var trade_date></td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var trade_for></td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_with></td>
+	<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_amount> </td>
+	<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"> <tmpl_var trade_tax> </td>
+  </tr>
+</tmpl_loop>
+</tmpl_if>
+
+</table>
+</form>
+<br />
+
+<tmpl_unless summary>
+No summary information is available for this account.
+</tmpl_unless>
+
+</tmpl_unless>
+</tmpl_unless>
+
+<TMPL_INCLUDE NAME="foot.html">

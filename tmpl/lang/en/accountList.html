@@ -1,0 +1,78 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+<table cellpadding="0" cellspacing="0" border=0><tr><td>
+<form method=post name="accountlistform">
+<fieldset>
+<legend>Chercher</legend>
+<table cellpadding="2" cellspacing="0" border=0>
+<tr><td>
+<select name="_search_on">
+<option value="m-c" <tmpl_var name=_search_on_m-c>>Le nom contient</option>
+<option value="m-b" <tmpl_var name=_search_on_m-b>>Le nom commence par</option>
+<option value="a-c" <tmpl_var name=_search_on_a-c>>Le pseudo contient</option>
+<option value="a-b" <tmpl_var name=_search_on_a-b>>Le pseudo commence par</option>
+<!--
+<option value="f-c" <tmpl_var name=_search_on_f-c>>Le prénom contient</option>
+<option value="f-b" <tmpl_var name=_search_on_f-b>>Le prénom commence par</option>
+<option value="l-c" <tmpl_var name=_search_on_l-c>>Le nom contient</option>
+<option value="l-b" <tmpl_var name=_search_on_l-b>>Le nom commence par</option>
+-->
+<option value="e-c" <tmpl_var name=_search_on_e-c>>Le email contient</option>
+<option value="e-b" <tmpl_var name=_search_on_e-b>>Le email commence par</option>
+<option value="n-c" <tmpl_var name=_search_on_n-c>>Les notes contiennent</option>
+<option value="" <tmpl_var name=_search_on_>>Montrer tout</option>
+</select>
+<input type="text" name="_search_for" value="<tmpl_var name=_search_for>">
+</td></tr>
+<tmpl_if user_priv_dev>
+<tr><td>
+(ajouter un ET SQL <input type="text" name="sql" value="<tmpl_var ESCAPE=HTML name=sql>">)
+</td></tr>
+</tmpl_if>
+Classer par : <select name="_order">
+<option value="n" <tmpl_var name=_order_n>>Nom</option>
+<option value="a" <tmpl_var name=_order_a>>Prénom</option>
+<option value="c" <tmpl_var name=_order_c>>Créer une date</option>
+<option value="l" <tmpl_var name=_order_l>>Dernière connexion</option>
+</select>
+
+<input type="hidden" name="p" value="accountList">
+</td></tr>
+<tr><td>
+<input type="submit" name="submit" value="Chercher">
+</td></tr></table>
+</fieldset>
+</form>
+</td></tr></table>
+
+<tmpl_unless _no_search_done>
+<br>
+<tmpl_if _search_failed><i>Aucun utilisateur trouvé</i></tmpl_if>
+<tmpl_unless _search_failed><I>Utilisateurs trouvé <tmpl_var _count></I></tmpl_unless>
+</tmpl_unless>
+
+
+<tmpl_loop name="items">
+<hr>
+ 
+<B><tmpl_var name=fname> <tmpl_var name=lname></B>, <tmpl_var name=name>, <tmpl_var name=type>
+&nbsp;<a href="?p=account&id=<TMPL_VAR NAME=id>&_search_on=<TMPL_VAR NAME=_search_on>&_search_for=<TMPL_VAR NAME=_search_for>&_search_on_t-is=<TMPL_VAR NAME=_search_on_t-is>&_order=<TMPL_VAR NAME=_order>">éditer</a>
+<tmpl_if user_priv_admin> &nbsp;<a href="?p=home&su=<TMPL_VAR NAME=id>">se connecter en tant que</A></tmpl_if>
+
+<br>
+<tmpl_if email><tmpl_var name=email> 
+<a href="#" onClick="window.open('?p=sysEmail&id=<TMPL_VAR NAME=id>','email','menubar,height=450,width=600,scrollbar,resizable');">envoyer e-mail</a></tmpl_if>
+<tmpl_if phone>/ <tmpl_var name=phone> </tmpl_if><tmpl_if phone2> ou <tmpl_var name=phone2></tmpl_if>
+<BR>
+<tmpl_if address1><tmpl_var name=address1>, </tmpl_if><tmpl_if address2> <tmpl_var name=address2>,</tmpl_if><tmpl_if city> <tmpl_var name=city>,</tmpl_if>  <tmpl_var name=state>  <tmpl_var name=zip>  <tmpl_var name=country>
+<BR>
+
+<tmpl_if user_priv_admin>
+Privilèges : <tmpl_if user_priv_privs><a href="?p=accountPrivs&id=<TMPL_VAR NAME=id>&_search_on=<TMPL_VAR NAME=_search_on>&_search_for=<TMPL_VAR NAME=_search_for>&_order=<TMPL_VAR NAME=_order>"></tmpl_if><tmpl_if privflags><tmpl_var name=privFlags><tmpl_else><i>aucun</i></tmpl_if><tmpl_if user_priv_privs></a></tmpl_if>
+<BR>
+</tmpl_if>
+<tmpl_if notes>Notes : <tmpl_var notes></tmpl_if>
+</tmpl_loop>
+
+<tmpl_include name="foot.html">

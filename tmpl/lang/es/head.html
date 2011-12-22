@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>dinero abierto</title>
+<link href="/om.css" rel="stylesheet" type="text/css">	                    
+</head>
+<body>
+<table class="contents"><tr><td>
+<div id="_topbar">
+	<tmpl_if user_priv_dev>
+	<span class="dev_header">
+	<a href="?p=l10n/pages" title="Localize">l10n</a> -
+	<a href="?p=l10n/pages&m=edit&t=<tmpl_var p>.html&r=<tmpl_var p>" title="Localize This Page">this</a>
+	: <a href="?p=bugs/list" title="Bugs and To-Do Items">bugs</a>
+	<tmpl_if user_priv_admin>: <a href="?p=eventLog" title="Event Log">events</a></tmpl_if>
+	</span>
+	</tmpl_if>
+	<tmpl_if user_id>
+	<a href="<tmpl_var _url>?p=accountChange"><tmpl_var user_name> </a>
+	:
+	<a href="<tmpl_var _url>?p=logout">logout</a>
+	<tmpl_else>&nbsp;</tmpl_if>
+</div>
+<div id="_header"><h2>dinero abierto</h2>
+	<div id="_section_nav">
+		<tmpl_if user_id>
+		<a href="<tmpl_var _url>">casa</a>
+		:
+		<a href="<tmpl_var _url>?p=om/account_trading">accounts</a>
+		:
+		<a href="<tmpl_var _url>?p=om/currency_join">currencies</a>
+		:
+		<a href="?p=om/domain_admin">domains</a>
+		:
+		<a href="<tmpl_var _url>?p=contactInfo">user info</a>
+		<tmpl_if user_priv_admin>
+		|
+		<a href="?p=accountList" title="Add or update users">users</a>
+		:
+		<a href="?p=om/domains" title="Administrate the namespaces">namespace</a>
+		</tmpl_if>
+		<tmpl_else>
+		<a href="<tmpl_var _url>">casa</a> : <a href="about.exec.html">about</a> : <a href="dev.html">development</a>
+		</tmpl_if>
+	</div><!-- _section_nav -->
+</div><!-- _head -->
+<div id="_main">

@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule ^om/(.*)$ /om.cgi?p=$1
+</IfModule>

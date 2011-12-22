@@ -1,0 +1,7 @@
+To: <tmpl_var to>
+From: <tmpl_var from>
+Subject: open money new account
+
+<tmpl_var name> (<tmpl_var user_email>) has created an account: <tmpl_var username>
+
+(URL: <tmpl_var _url>)

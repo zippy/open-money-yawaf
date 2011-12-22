@@ -1,0 +1,32 @@
+
+<form action="" method=post id="edit_node_<tmpl_var id>" name="edit_node_<tmpl_var id>">
+<tmpl_if edit_name>
+{{Name:}} <tmpl_var name="name"><tmpl_var name="error.name">
+</tmpl_if>
+<tmpl_if edit_contents>
+<tmpl_var name="error.contents">
+<br />
+<tmpl_var name="contents">
+</tmpl_if>
+
+<tmpl_if edit_parent>
+<br /><span style="display:none" id="fish_<tmpl_var id>">{{Parent ID:}} <tmpl_var parent_id></span><a href="#" onclick="document.getElementById('fish_<tmpl_var id>').style.display = 'inline';">+</a>
+</tmpl_if>
+
+<br />
+<tmpl_if id>
+<input type=submit value="{{Save}}" onClick="saveNode(<tmpl_var id>);return false;">
+<input type=button value="{{Cancel}}" onClick="showNode(<tmpl_var id>);return false;">
+<tmpl_else>
+<input type=submit value="{{Save}}" onClick="newNode(<tmpl_var parent_id_val>);return false;">
+<input type=button value="{{Cancel}}" onClick="Effect.BlindUp('subnode_<tmpl_var parent_id_val>');return false;">
+<input type=hidden name="level_plus_one" value="<tmpl_var level_plus_one>">
+</tmpl_if>
+
+<input type=hidden name="edit_contents" value="<tmpl_var edit_contents>">
+<input type=hidden name="edit_name" value="<tmpl_var edit_name>">
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="node/node">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+
+</form>

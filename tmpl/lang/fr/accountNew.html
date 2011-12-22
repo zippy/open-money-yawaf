@@ -1,0 +1,15 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+<form action="" method=post>
+<table cellpadding=2 border=0>
+<tr><td>Nom d'utilisateur:</td><td><tmpl_var name="name"><tmpl_var name="error.name"></td></tr>
+<td>
+<input type=submit value="Créer l'utilisateur">
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="accountNew">
+<input type=hidden name="_ticket" value="<tmpl_var name="_ticket">">
+</td></tr>
+</table>
+</form>
+<tmpl_include name="foot.html">

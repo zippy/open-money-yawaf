@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+        <channel>
+                        <description></description>
+
+                <title>Your recent transaction history</title>
+<tmpl_if subtitle>        <description><tmpl_var subtitle></description>
+</tmpl_if>        <link> <tmpl_var _url_full>?p=om/account_history</link>
+                <lastBuildDate><tmpl_var last_trade_date></lastBuildDate>
+<tmpl_loop history>
+                <item>
+                        <title><tmpl_var trade_amount> {{with}} <tmpl_var trade_with> {{in}} <tmpl_var trade_currency> {{for}} <tmpl_var trade_for></title>
+	       <link> <tmpl_var _url_full>?p=om/account_history</link>
+			<guid isPermaLink="false"><tmpl_var trade_id></guid>
+                        <pubDate><tmpl_var trade_date></pubDate>
+                        <description></description>
+                </item>
+</tmpl_loop>
+        </channel>
+</rss>

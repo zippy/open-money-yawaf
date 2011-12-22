@@ -1,0 +1,38 @@
+<tmpl_include name="head.html">
+	<br />
+	<tmpl_unless user_id>
+		<center>
+			<table width="728">
+				<tr>
+					<td width="415" valign="top">
+						<p align="center"><strong>{{A pilot project for a community currency network}}</strong></p>
+						<p>{{Open money is a platform for creating community currencies. It enables exchange without the use of conventional money, as well as many other functions like reputation currencies, loyalty currencies, time dollars, demurage currencies, etc... }}</p>
+						<p>{{This site a is fully operable demonstration of an open money currency service provider. You can log in and give it a try, and you can also download and install our open source software to be a currency service provider service for your communities.}} 
+						</p>
+					</td>
+					<td width="18" valign="top">
+						&nbsp;
+					</td>
+					<td width="279">
+						<tmpl_include name="loginbox.html">
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+		</center>
+	<tmpl_else>
+	<div id="dashboard">
+		<h3>{{Welcome to the open money pilot project!}}</h3>
+		
+			<br />
+			<br />
+			<br />
+			<br />
+			<a href="<tmpl_var _url>?p=logout">{{Logout}}</a> 
+	</div>
+	
+	</tmpl_unless>
+	<br />
+<tmpl_include name="foot.html">

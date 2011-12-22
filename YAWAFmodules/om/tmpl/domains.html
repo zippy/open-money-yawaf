@@ -1,0 +1,10 @@
+<tmpl_include name="head.html">
+<tmpl_include name="domain_tabs.html">
+<tmpl_unless domains>
+	{{No domains have been created yet.}}
+<tmpl_else>
+	<tmpl_loop domains>
+	&nbsp;&nbsp;&nbsp;&nbsp;<tmpl_var domain><br />
+	</tmpl_loop>
+</tmpl_unless>
+<tmpl_include name="foot.html">

@@ -1,0 +1,15 @@
+<tmpl_include name="head.html">
+<tmpl_include name="account_tabs.html">
+
+<h3>Crear una neueva cuenta</h3>
+<form method=post name="new">
+<input type="hidden" name="p" value="om/account_new">
+<input type="hidden" name="m" value="submit">
+<fieldset>
+<label>Nombre: <tmpl_var account_name><tmpl_var error.account_name></label>
+<tmpl_if domain> <label>Domain: <tmpl_var domain><tmpl_var error.domain></label></tmpl_if>
+<br />
+<input type="submit" value="Crear" />
+</fieldset>
+</form>
+<TMPL_INCLUDE NAME="foot.html">

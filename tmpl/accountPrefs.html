@@ -1,0 +1,19 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user.html">
+          
+<form action="" method=post>
+<fieldset id="settings">
+<tmpl_var name="prefFlags">
+<br />
+<label>{{Start Page:}} <tmpl_var prefstartpage></label>
+<label>{{Language:}} <tmpl_var preflanguage></label>
+<label>{{TimeZone:}} <tmpl_var timeZone></label>
+<input type="hidden" name="m" value="submit">
+<input type="hidden" name="p" value="accountPrefs">
+<input type="hidden" name="r" value="<tmpl_var name="r">">
+</fieldset>
+<input type="submit" value="{{Submit}}">
+
+</form>
+
+<tmpl_include name="foot.html">

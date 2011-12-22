@@ -1,0 +1,34 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%" class="clear">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+		
+      <li id="tab-trading" title="{{Enter transactions on your account}}" <tmpl_if p_om/account_trading>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_trading">{{trading}}</a></li>
+      <li id="tab-history" title="{{View your account history}}" <tmpl_if p_om/account_history>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_history">{{history}}</a></li>
+<!-- 
+      <li id="tab-prefs" title="{{Update your account settings}}" <tmpl_if p_om/account_prefs>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_prefs">{{settings}}</a></li>
+ -->
+      <li id="tab-new" title="{{Create a new account}}" <tmpl_if p_om/account_new>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/account_new">{{add}}</a></li>
+    </ul>
+
+        </div></td>
+  </tr>
+</table>
+
+<div id="account-selector">
+<tmpl_if account>
+	<div id="_account-selector">
+	
+	<tmpl_if multiple_accounts>
+		<form method=post name="act">
+			<input type="hidden" name="p" value="<tmpl_var p>"><label>
+	</tmpl_if>
+		{{Account: }}<tmpl_var account>
+	<tmpl_if multiple_accounts>
+			</label>
+		</form>
+	</tmpl_if>
+	</div>
+</tmpl_if>
+</div>

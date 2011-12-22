@@ -1,0 +1,29 @@
+<tmpl_include name="head.html">
+<tmpl_include name="sfa_tabs.html">
+
+<form action="<tmpl_var _url>" method=post>
+<fieldset>
+
+<tmpl_if id>
+<a href="<tmpl_var name="_url">?m=del&id=<tmpl_var name="id">&p=sfa/comment&confirm=1">{{Delete this one}}</a>
+<br />
+{{Last modified by:}} <tmpl_loop modified_by><tmpl_var modified_by_name></tmpl_loop>  {{on}}  <tmpl_var name="modified">
+<br />
+</tmpl_if>
+
+<tmpl_var name="parent_id">
+{{Comment:}} <tmpl_var name="error.contents">
+<br />
+<tmpl_var name="contents">
+<br />
+<input type=submit value="{{Submit}}">
+</fieldset>
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="sfa/comment">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+<input type=hidden name="order" value="<tmpl_var order>">
+<input type=hidden name="review_id" value="<tmpl_var review_id>">
+<input type=hidden name="sfa_id" value="<tmpl_var sfa_id>">
+
+</form>
+<tmpl_include name="foot.html">

@@ -1,0 +1,46 @@
+<TMPL_INCLUDE NAME="head.html">
+ 
+<H3><tmpl_var name="name"></H3>
+
+<table class="listtable">
+<tr>
+<td class="listtableheadfirst">{{Current: }} <tmpl_var modified> {{by}} <tmpl_var fname> <tmpl_var lname></td>
+</tr>
+<tr>
+<td class="listtablefirst"><tmpl_var name="contents"></td>
+</tr>
+
+
+<tmpl_if name=history>
+
+<tr>
+<td class="listtableheadfirst">{{History: }}</td>
+</tr>
+
+<tmpl_loop name=history>
+<tr>
+	<td class="listtablefirst" <tmpl_if __odd__>style="background: #FFFFCC;"</tmpl_if>> <span class="history_name"><tmpl_var modified> {{by}} <tmpl_var fname> <tmpl_var lname> </span>
+	<div class="history_contents"><tmpl_var contents></div>
+	</td>
+</tr>
+</tmpl_loop>
+<tmpl_else>
+
+<tr>
+<td class="listtableheadfirst">{{No History}}</td>
+</tr>
+
+</tmpl_if>
+
+</table>
+
+
+
+<hr>
+<a href="?p=node/node<tmpl_if depth>&depth=<tmpl_var depth></tmpl_if>&show_contents=<tmpl_var show_contents>">{{Back}}</a>
+<!-- 
+<a href="?p=node/node&id=<tmpl_var id>&m=show">{{Edit}}</a>
+<a href="?p=node/node&id=<tmpl_var id>">{{View}}</a>
+ -->
+
+<TMPL_INCLUDE NAME="foot.html">

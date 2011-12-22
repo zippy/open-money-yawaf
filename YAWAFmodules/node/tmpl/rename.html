@@ -1,0 +1,12 @@
+
+<form action="" method=post id="rename_node_<tmpl_var id>" name="rename_node_<tmpl_var id>">
+<tmpl_var name="name"><tmpl_var name="error.name">
+
+<input type=submit value="{{Save}}" onClick="doRenameNode(<tmpl_var id>);return false;">
+<input type=button value="{{Cancel}}" onClick="Element.hide('e_name_<tmpl_var id>');Element.show('name_<tmpl_var id>');return false;">
+
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="node/rename">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+
+</form>

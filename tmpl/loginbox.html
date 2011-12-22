@@ -1,0 +1,20 @@
+<div id="loginbox">
+	<form action="<tmpl_var _url>" method="post" id="login">
+		<table border=0><tr><td>
+		<fieldset>
+			<legend>{{log in}}</legend>
+<tmpl_if name="badlogin"> <span class="errortext">{{Either we don't have an account with that user name, or you've entered the wrong password.  Please try again.}}</span><br /></tmpl_if>        
+<tmpl_if name="sessionTimeout"><span class="errortext">{{Your session has timed out. Please log in again to continue.}}</span><br /></tmpl_if>
+			<nobr><label for="name">{{name}}</label><tmpl_var name="name"> <tmpl_var name="error.name"></nobr> <br />
+			<nobr><label for="password">{{password}}</label><tmpl_var name="password"><tmpl_var name="error.password"></nobr> <br />
+			<input type="hidden" name="m" value="submit" />
+			<input type="hidden" name="p" value="home" />
+			<input type=hidden name="login_params" value="<tmpl_var name="login_params">">
+			<input type="submit" value="{{log in}}" /> 
+			<br />
+			<a href="<tmpl_var _url>?p=requestLoginInfo" class="smaller">{{Forgot your user name password?}}</a>
+			<br />
+			<a href="<tmpl_var _url>?p=om/new_user" class="smaller">{{New user?}}</a> 
+		</fieldset></td></tr></table>
+	</form>
+</div>

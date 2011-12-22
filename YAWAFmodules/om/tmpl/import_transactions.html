@@ -1,0 +1,22 @@
+<tmpl_include name="head.html">
+<tmpl_include name="import_tabs.html">
+
+<tmpl_unless import_successful>
+	<form method=post name="import" id="import">
+	Import a set of transactions into the database
+	<p>
+	<h4>Input Format</h4>
+	transaction_id,account_from,account_to,date,currency,amount,description,tax-status
+	<p>
+	<tmpl_if error.import><tmpl_var error.import><p></tmpl_if>
+	<tmpl_var import>
+	<p>
+	<input type="hidden" name="p" value="om/import_transactions">
+	<input type="submit" name="m" value="submit">
+	
+	</form>
+<tmpl_else>
+	Import was succesfull
+</tmpl_unless>
+
+<TMPL_INCLUDE NAME="foot.html">

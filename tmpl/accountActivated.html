@@ -1,0 +1,15 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+{{The user has been activated.}}
+<TMPL_IF password>
+<P>
+{{The password for this user is:}} <TMPL_VAR name="password">
+<tmpl_else>
+<P>
+{{The password for this user has been sent to}} <TMPL_VAR name="email">
+</TMPL_IF>
+<P>
+<a href="?p=accountNew">{{Add another user}}</a>
+
+<tmpl_include name="foot.html">

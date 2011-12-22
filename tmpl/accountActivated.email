@@ -1,0 +1,12 @@
+To: <tmpl_var to>
+From: <tmpl_var from>
+Subject: open money account **PASSWORD**
+
+Thanks for participating in the open money demonstration project.
+
+Your username is: <tmpl_var name>
+Your temporary password is: <tmpl_var password>
+
+You can log in at <tmpl_var _url>
+
+For your convenience, you can change both your user name and your password to something you'll remember.  To make these changes, first log in with the user name and password above.  Then click on the "user info" link at the top of the page.

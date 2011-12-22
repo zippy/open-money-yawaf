@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/om-demo.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>open money: Currecies</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style1 {color: #0E6E0E}
+-->
+</style>
+<!-- InstanceEndEditable -->
+<link href="om.css" rel="stylesheet" type="text/css">	                    
+</head>
+<body>
+<table class="contents"><tr><td>
+<div id="_topbar"><!-- InstanceBeginEditable name="topbar" --><a href="settings.html">zippy</a>: <a href="/">logout</a><!-- InstanceEndEditable --></div>
+<center>
+  <span class="title">open money - demo</span>
+  <div id="_section_nav"><a href="index.html">home</a> : <a href="account.trading.html">accounts</a> : <a href="currencies.join.html">currencies</a> : <a href="namespace.html">namespace</a></div>
+</center>
+       
+<div id="_main"><!-- InstanceBeginEditable name="main" --><br /><!-- #BeginLibraryItem "/Library/ctab.lbi" -->
+ <div id="tabs-bar">
+  <ul id="tabs">
+  <li><a href="index.html">home</a></li>
+  <li> <a href="account.trading.html">accounts</a></li>
+ 	<li class="selected"> <a href="currencies.join.html">currencies</a><li>
+ 	<li> <a href="namespace.html">namespace</a></li>
+</ul>
+        </div>
+        <ul id="sub-tabs">
+      <li id="ctab-my"> <a href="currencies.my.html" title="Administer my currencies">My</a></li>
+      <li id="ctab-join"> <a href="currencies.join.html" title="Join Currencies">Join</a></li>
+      <li id="ctab-create"> <a href="currencies.create.html" title="Create Currencies">Create</a></li>
+    </ul>
+        <div id="subtabs-bar"></div>
+	<script type="text/javascript">
+var tab=location.pathname.substring(location.pathname.lastIndexOf('/')+1)
+tab = tab.substring(0,tab.lastIndexOf('.'))
+tab = 'ctab-'+tab.substring(tab.lastIndexOf('.')+1)
+var i=document.getElementById(tab)
+i.className='selected'
+</script>
+	<!-- #EndLibraryItem --><form id="form1" name="form1" method="post" action="">
+      <label>
+        Short Name:
+  <input name="short_name" type="text" value="bucks" size="10" />
+      </label>
+      <label>Long Name:
+        <input name="long_name" type="text" value="CC Bucks" size="30" />
+      </label>
+	  <label><br />
+	  Description:<br />
+	  <textarea name="textarea" cols="75" rows="3">A currency for "main street" businesses in Columbia County, sponsored by the Columbia County Chamber of Commerce</textarea>
+	  <br />
+        Host:
+  <select name="host" id="host">
+    <option selected="selected">ccasle.cc.ny.us</option>
+    <option>bcp.burlington.vt.ny.us</option>
+  </select>
+      </label>
+	  <br />
+	  <label>Distribution:
+      <select name="distribution" id="distribution">
+        <option value="public" selected="selected">Everywhere</option>
+        <option>ccasle.cc.ny.us</option>
+        <option>cc.ny.us</option>
+        <option>bcp.burlington.vt.us</option>
+        <option>burlington.vt.us</option>
+        <option>ny.us</option>
+        <option>vt.us</option>
+        <option>us</option>
+      </select>
+      </label>
+      <label></label>
+      <label></label>
+      <label> </label>
+      <a href="custom_distribution.html">+</a>
+      <label></label>
+      <br />
+      <input name="checkbox" type="checkbox" value="checkbox" checked="checked" />
+      <label> Requires Membership Agreement: [<a href="editagreement.html">edit</a>] (<a href="membershipagreements.html">samples</a>) </label>
+      <br />
+      <br />
+	  <fieldset>
+	  <legend>Simple Options </legend>
+	
+	  <label>Type:
+      <select name="type">
+        <option>Transaction</option>
+        <option selected="selected">Transaction:Mutual Credit</option>
+        <option>Transaction:Mutual Credit w/ Limits</option>
+        <option>Transaction:Issuer Credit</option>
+        <option>Reputation</option>
+          </select>
+      </label><label>
+        Unit of Measure:
+  <select name="unit">
+    <option selected="selected">US Dollar ($)</option>
+    <option>Euro (&euro;)</option>
+    <option>Time:hours (h)</option>
+    <option>Time:mintues (m)</option>
+    <option>Kilowatt Hours (kwh)</option>
+  </select>
+      </label>
+          </fieldset>
+			<br />
+		
+	<fieldset>
+	<legend>Advanced Options </legend>
+      </label>Parent
+      <label>Class:
+        <select name="type">
+        <option selected="selected">Transaction</option>
+        <option>Transaction:Mutual Credit</option>
+        <option>Transaction:Mutual Credit w/ Limits</option>
+        <option>Reputation</option>
+          </select>
+      </label> <label>Class Name: <input name="class_name" type="text" value="Issuer Credit" size="30" />
+      </label>
+      <br />
+      <label>Unit of Measure:
+      <select name="select5">
+        <option selected="selected">US Dollar ($)</option>
+        <option>Euro (&euro;)</option>
+        <option>Time:hours (h)</option>
+        <option>Time:mintues (m)</option>
+        <option>Kilowatt Hours (kwh)</option>
+      </select>
+      </label>
+      <a href="custom_unit_of_measure">+</a>
+      <label><br />
+      </label>
+<br />
+      <label>Account Classes:
+      <select name="user_classes" size="3" multiple="multiple" id="user_classes">
+        <option>issuer</option>
+        <option>user</option>
+      </select>
+</label>
+      <a href="custom_user_class.html">+</a>
+      <br />
+          <label>Joining Access: <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          issuer
+          <select name="jaccess" id="jaccess">
+          <option value="public">Public (anyone can join)</option>
+          <option value="open">Open (requires owner approval)</option>
+          <option value="private" selected="selected">Private (by invitation only)</option>
+          </select>
+          <br />
+      </label>
+          <label>&nbsp;&nbsp;&nbsp;&nbsp;
+          user
+          <select name="select3" id="select">
+            <option value="public" selected="selected">Public (anyone can join)</option>
+            <option value="open">Open (requires owner approval)</option>
+            <option value="private">Private (by invitation only)</option>
+          </select>
+          <br />
+          </label>
+<br />
+          <label>Viewing Access: <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;issuer
+          <select name="vaccess" id="vaccess">
+        <option value="public">All activity </option>
+        <option value="open" selected="selected">Balances &amp; Volume</option>
+        <option value="private">Nothing</option>
+      </select>
+      </label>
+      <br />
+      <label></label>
+      <label>&nbsp;&nbsp;&nbsp;&nbsp;user
+      <select name="select4" id="select2">
+        <option value="public">All activity </option>
+        <option value="open">Balances &amp; Volume</option>
+        <option value="private" selected="selected">Nothing</option>
+          </select>
+      </label>
+      <br />
+      <label></label>
+<br />
+      <label>Limits:<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      issuer:
+      <select name="select">
+        <option>None</option>
+        <option>Positive only</option>
+        <option>Negative Absolute</option>
+        <option>Negative Historical</option>
+      </select>
+      <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      user:
+      <select name="select2">
+        <option>None</option>
+        <option selected="selected">Positive only</option>
+        <option>Negative Absolute</option>
+        <option>Negative Historical</option>
+          </select>
+      </label>
+      <br />
+      <br />
+     <label>Demurage: <input name="demurage" type="text" value="0" size="3" />
+     %
+     </label>
+      per year 
+	</fieldset>
+
+    </form>
+<!-- InstanceEndEditable --></div>
+<div id="_footer">
+
+	<p>(cc) the open money development group</p>
+</div>
+</td></tr></table>
+</body>
+<!-- InstanceEnd --></html>

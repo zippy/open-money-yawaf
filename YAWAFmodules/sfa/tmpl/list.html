@@ -1,0 +1,99 @@
+<tmpl_include name="head.html">
+<tmpl_include name="sfa_tabs.html">
+
+<div id="sfa_stats"">
+	<p>{{Your SFA Stats:}}</p>
+{{Pending:}} <tmpl_var pending_count> for $<tmpl_var pending_amount><br />
+{{Approved:}} <tmpl_var approved_count> for $<tmpl_var approved_amount><br />
+{{Retired:}} <tmpl_var retired_count> for $<tmpl_var retired_amount><br />
+</div>
+
+<tmpl_if name="sfa">
+<br /><strong>{{Your pending SFA:}}</strong>
+<table class="listtable">
+  <tr>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=p">{{Project}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=c">{{Currency}}</a></td>
+	<td class="listtableheadfirst"><a href="<tmpl_var _url>?p=sfa/list&_order=a">{{Amount}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=t">{{Description}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=s">{{Date}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=d">{{Date Submitted}}</a></td>
+	<td class="listtablehead">&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+<tmpl_loop name="sfa">
+<tr>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var project></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var currency></td>
+	<td align="right" class="listtablefirst<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var amount> </td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var description></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var start_date></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var date></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><a href="<tmpl_var _url>?p=sfa/edit&id=<tmpl_var id>">{{edit}}</a> <a href="<tmpl_var _url>?p=sfa/review&parent_id=<tmpl_var id>">{{review}}</a></td>
+  </tr>
+</tmpl_loop>
+</table>
+
+<tmpl_else>
+<br /><strong>{{You have no pending SFAs}}</strong>
+</tmpl_if>
+
+<tmpl_if name="sfa_review">
+<br /><strong>{{SFA pending review:}}</strong>
+<table class="listtable">
+  <tr>
+	<td class="listtableheadfirst"><a href="<tmpl_var _url>?p=sfa/list&_order=w">{{Who}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=p">{{Project}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=c">{{Currency}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=a">{{Amount}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=t">{{Description}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=s">{{Date}}</a></td>
+	<td class="listtablehead"><a href="<tmpl_var _url>?p=sfa/list&_order=d">{{Date Submitted}}</a></td>
+	<td class="listtablehead">&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+<tmpl_loop name="sfa_review">
+<tr>
+	<td class="listtablefirst<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var who> </td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var project></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var currency></td>
+	<td align="right" class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"> <tmpl_var amount> </td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var description></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var start_date></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><tmpl_var date></td>
+	<td class="listtable<tmpl_unless name=__odd__>odd</tmpl_unless>"><a href="<tmpl_var _url>?p=sfa/review&parent_id=<tmpl_var id>&id=<tmpl_var review_id>">{{review}}</a></td>
+  </tr>
+</tmpl_loop>
+</table>
+<tmpl_else>
+<br /><strong>{{There are no pending SFAs to review}}</strong>
+</tmpl_if>
+
+<tmpl_if name="bugs">
+<table border=1 bordercolor="#000066" cellspacing=0 cellpadding=4>
+<tr>
+<th>{{Status}}</th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=w">{{For}}</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=c">{{Code}}</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=n">{{Name}}</a></th>
+<th><a href="<tmpl_var _url>?p=bugs/list&_order=t">{{Type}}</a></th>
+<th>Date <a href="<tmpl_var _url>?p=bugs/list&_order=d"><img border=0 src="art/triangle_dn.gif"></a> <a href="<tmpl_var _url>?p=bugs/list&_order=r"><img border=0 src="art/triangle_up.gif"></a></th>
+</tr>
+<tmpl_loop name="bugs">
+<tr>
+	<td> <tmpl_var name=status></td>
+	<td> <tmpl_var name=who></td>
+	<td> <tmpl_var name=code></td>
+	<td> <a href="<tmpl_var _url>?p=bugs/edit&id=<TMPL_VAR NAME=id>"><tmpl_var name=itemname><a/></td>
+	<td> <tmpl_var name=type></td>
+	<td> <tmpl_var name=date></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_else>
+<!-- 
+{{No items}}
+ -->
+</tmpl_if>
+<a name="changelog"></A>
+<tmpl_include name="foot.html">

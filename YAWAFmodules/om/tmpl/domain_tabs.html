@@ -1,0 +1,16 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+	<tmpl_if can_admin>
+		<li id="tab-list" title="{{Manage Domains}}" <tmpl_if p_om/domain_admin>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/domain_admin">{{manage}}</a></li>
+		<li id="tab-edit" title="{{Grant Domain Permissions}}" <tmpl_if p_om/domain_user_perms>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/domain_user_perms">{{permissions}}</a></li>
+	</tmpl_if>
+	<tmpl_if is_domain_steward>
+		<li id="tab-new" title="{{Create New Domain}}" <tmpl_if p_om/domain_new>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=om/domain_new">{{new}}</a></li>
+	</tmpl_if>
+    </ul>
+        </div></td>
+  </tr>
+</table>

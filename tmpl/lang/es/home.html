@@ -1,0 +1,38 @@
+<tmpl_include name="head.html">
+	<br />
+	<tmpl_unless user_id>
+		<center>
+			<table width="728">
+				<tr>
+					<td width="415" valign="top">
+						<p align="center"><strong>Un proyecto para el desarollo de los dineros comunals</strong></p>
+						<p>El dinero abierto es una heramienta para el desarollo de los dineros comunals...</p>
+						<p>This site a is fully operable demonstration of an open money currency service provider. You can log in and give it a try, and you can also download and install our open source software to be a currency service provider service for your communities. 
+						</p>
+					</td>
+					<td width="18" valign="top">
+						&nbsp;
+					</td>
+					<td width="279">
+						<tmpl_include name="loginbox.html">
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+		</center>
+	<tmpl_else>
+	<div id="dashboard">
+		<h3>Bienvenido al proyecto para el desarollo de los dineros comunales!</h3>
+		
+			<br />
+			<br />
+			<br />
+			<br />
+			<a href="<tmpl_var _url>?p=logout">Salir</a> 
+	</div>
+	
+	</tmpl_unless>
+	<br />
+<tmpl_include name="foot.html">

@@ -1,0 +1,35 @@
+<tmpl_include name="head.html">
+<h3><tmpl_if id>{{Item}}<tmpl_else>{{New Item}}</tmpl_if></h3>
+<p>
+
+<form action="" method=post>
+<tmpl_if id>
+<a href="<tmpl_var name="_url">?m=del&id=<tmpl_var name="id">&p=bugs/edit&confirm=1">{{Delete this one}}</a>
+<fieldset>
+{{Created by:}} <tmpl_loop created_by><tmpl_var created_by_name></tmpl_loop>  {{on}}  <tmpl_var name="date"> <tmpl_if modified> {{Modified:}}  <tmpl_var name="modified"> </tmpl_if>
+<br />
+</tmpl_if>
+{{Code:}}  <tmpl_var name="code"><tmpl_var name="error.code"> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{(use for creating arbitrary classes within the types, i.e. "Version 2")}}
+<br />
+{{Name:}}  <tmpl_var name="itemname"><tmpl_var name="error.itemname">
+<br />
+{{Type:}}  <tmpl_var name="type"><tmpl_var name="error.type">
+<br />
+{{Status:}}  <tmpl_var name="status"><tmpl_var name="error.status">
+<br />
+{{Assigned to:}}  <tmpl_var name="account_id"><tmpl_var name="account_id.who">
+<br />
+{{Description:}} <tmpl_var name="error.description">
+<br />
+<tmpl_var name="description">
+<br />
+{{Notes:}} <tmpl_var name="error.notes"><br />
+<tmpl_var name="notes">
+<br />
+<input type=submit value="{{Submit}}">
+</fieldset>
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="bugs/<tmpl_if id>edit<tmpl_else>create</tmpl_if>">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+</form>
+<tmpl_include name="foot.html">

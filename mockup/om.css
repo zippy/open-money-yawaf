@@ -1,0 +1,294 @@
+/* CSS Document */
+#_topbar {
+	text-align:right;
+	font-size: 80%;
+}
+
+#_mainarea {
+}
+
+#_footer {
+	text-align:center;
+	font-size: 85%;
+    border: 1px solid;
+	border-color: #8cacbb #ffffff #ffffff #ffffff;
+}
+#_topbar a {
+	font-size: 85%;
+}
+
+body {
+	background-color:#CCCCCC;
+}
+
+body,td,a,p,.h,legend,label{
+	font-family: arial,sans-serif;
+	font-size:10pt;
+	}
+a {
+	text-decoration:none;
+}
+
+.title{
+	color: rgb(  0,102,  0);
+	font-size:120%;
+	}
+
+.contents {
+    background-color: #ffffff;
+    border: 1px solid;
+	border-color: #8cacbb;
+    margin-left: auto;
+    margin-right: auto;
+	width: 750px;
+}
+/* The global section tabs. */
+
+#tabs {
+    background-color: transparent;
+    padding: 0em 0em 0em 2em;
+    white-space: nowrap;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+}
+
+#tabs li {
+    display: inline;
+}
+
+#tabs li.nolinktab {
+    /* The normal, unselected tabs. They are all links */
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: solid solid none solid;
+    height: auto;
+    margin-right: 0.5em;
+    padding: 0em 1.25em;
+    text-decoration: none;
+    text-transform: lowercase;
+    background-color: #dee7ec;
+    border: 1px solid #8cacbb;
+    border-bottom: #dee7ec 1px solid;
+    color: #0E6E0E;
+}
+
+#tabs li a {
+    /* The normal, unselected tabs. They are all links */
+    background-color: transparent;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: solid solid none solid;
+    color: #0E6E0E;
+    height: auto;
+    padding: 0em 1.25em;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+#tabs li.selected a {
+    /* The selected tab. There's only one of this */
+    background-color: #ffffff;
+    border: 1px solid #8cacbb;
+    border-bottom: #ffffff 1px solid;
+    color: #0E6E0E;
+}
+
+#tabs li a:hover {
+    background-color: #dee7ec;
+    border-color: #8cacbb;
+    border-bottom-color: #dee7ec;
+    color: #0E6E0E;
+}
+
+#tabs-bar {
+    /* Bar with personalized menu (user preferences, favorites etc) */
+    background-color: #dee7ec;
+    border-top-color: #8cacbb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #8cacbb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    line-height: 1.6em;
+    color: Black;
+    padding: 0em 3em 0em 3em;
+    margin: 0;
+    text-align: left;
+    text-transform: lowercase;
+    list-style: none;
+}
+
+
+/* The currency section tabs. */
+
+#sub-tabs {
+    background-color: transparent;
+    padding: .5em 0em 0em 2em;
+    white-space: nowrap;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+}
+
+#sub-tabs li {
+    display: inline;
+}
+
+#sub-tabs li a {
+    /* The normal, unselected tabs. They are all links */
+    background-color: transparent;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: solid solid none solid;
+    color: #0E6E0E;
+    height: auto;
+    margin-right: 0.5em;
+    padding: 0em 1.25em;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+#sub-tabs li.selected a {
+    /* The selected tab. There's only one of this */
+    background-color: #dee7ec;
+    border: 1px solid #8cacbb;
+    border-bottom: #dee7ec 1px solid;
+    color: #0E6E0E;
+}
+
+#sub-tabs li a:hover {
+    background-color: #dee7ec;
+    border-color: #8cacbb;
+    border-bottom-color: #dee7ec;
+    color: #0E6E0E;
+}
+
+#subtabs-bar {
+    /* Bar with personalized menu (user preferences, favorites etc) */
+    background-color: #dee7ec;
+    border-top-color: #8cacbb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #8cacbb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    line-height: 1.6em;
+    color: Black;
+    padding: 0em 3em 0em 3em;
+    margin: 0;
+    text-align: right;
+    text-transform: lowercase;
+    list-style: none;
+}
+
+
+
+#loginbox {
+    background-color: transparent;
+    padding: 0em 0em 0em 0em;
+    list-style: none;
+    margin: 0;
+    height: auto;
+    line-height: normal;
+	font-size: 90%;
+	margin-left:0;
+}
+
+#loginbox input {
+    visibility: visible;
+    border: 1px solid #8cacbb;
+    color: Black;
+    vertical-align: middle;
+    background: White url(/images/input_background.gif) repeat-x;
+}
+
+#loginbox fieldset {
+    border: 1px solid #8cacbb;
+    margin: 1em 0em 1em 0em;
+    padding: 0em 1em 1em 1em;
+    line-height: 1.5em;
+}
+#loginbox legend {
+    background: White;
+    padding: 0.5em;
+}
+#loginbox label {
+	width: 5em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block
+}
+
+
+#settings fieldset {
+    border: 1px solid #8cacbb;
+    margin: 1em 1em 1em 1em;
+    padding: 0em 1em 1em 1em;
+    line-height: 1.5em;
+	width: 60%;
+}
+
+.smaller {font-size: -2}
+
+.errortext {
+	color:#990000;
+}
+
+.listtabletitle {
+	color: rgb(  0,102,  0);
+	font-weight: bold;
+}
+
+.listtable {
+    border: 1px solid #8cacbb;
+}
+
+td.listtablehead {
+	background: #CCCCCC;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid solid;
+	font-weight: bold;
+    padding: 0 0 0 0;
+}
+td.listtableheadfirst {
+	background: #CCCCCC;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none solid none;
+	font-weight: bold;
+    padding: 0 0 0 0;
+}
+
+
+
+td.listtable {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none solid;
+    padding: 0 0 0 0;
+}
+td.listtableodd {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none solid;
+    padding: 0 0 0 0;
+	background: #FFFFCC;
+}
+td.listtablefirst {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none none;
+    padding: 0 0 0 0;
+}
+td.listtablefirstodd {
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none none none none;
+    padding: 0 0 0 0;
+	background: #FFFFCC;
+}

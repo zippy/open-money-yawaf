@@ -1,0 +1,56 @@
+<tmpl_include name="head.html">
+<tmpl_include name="currency_tabs.html">
+
+<tmpl_unless has_accounts>
+	{{You have not yet created a trading account.
+	<a href="<tmpl_var _url>?p=om/account_new">Créer un dompte d'échange</a> 
+<tmpl_else>
+	<tmpl_unless summary>
+No summary information is available.
+	<tmpl_else>
+	<table class="listtable">
+	  <tr>
+		<td class="listtableheadfirst"><a href="sort">Account</a></td>
+		<td class="listtablehead"><a href="sort">Currency</a></td>
+		<td class="listtablehead"><a href="sort">Balance</a></td>
+		<td class="listtablehead"><a href="sort">Volume</a></td>
+		<td class="listtablehead"><a href="sort">Last Trade</a> </td>
+	  </tr>
+	<tmpl_loop summary>
+	  <tr>
+		<td class="listtablefirst<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var account></td>
+		<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var name></td>
+		<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var balance></td>
+		<td align="right" class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var volume></td>
+		<td class="listtable<tmpl_unless name="__odd__">odd</tmpl_unless>"><tmpl_var last_trade></td>
+	  </tr>
+	</tmpl_loop>
+	</table>
+
+	</tmpl_unless>
+<br />
+
+	<form action="<tmpl_var _url>" method="post" name="join" id="join">
+	<table border=0><tr><td>
+	<fieldset>
+	<legend> Join a currency:</legend>
+	<input type="hidden" name="p" value="om/currency_join">
+	<input type="hidden" name="m" value="submit">
+	<label>Nom de la monnaie <tmpl_var currency_name><tmpl_var error.currency_name></label>
+	<br />
+	<label>Autorisation <tmpl_var currency_auth><tmpl_var error.currency_auth> (si nécessaire)</label>
+	<br />
+	<tmpl_if has_multiple_accounts>
+		<label>Choisir un ou plusieurs comptes <br /><tmpl_var account_select><tmpl_var error.account_select></label>
+		<br />
+	</tmpl_if>
+	<br />
+	<input type="submit" value="Souscrire" />
+	</fieldset>
+	</td></tr>
+	</table>
+	</form>
+	
+</tmpl_unless>
+
+<tmpl_include name="foot.html">

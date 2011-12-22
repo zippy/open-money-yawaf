@@ -1,0 +1,41 @@
+<tmpl_include name="head.html">
+<tmpl_include name="sfa_tabs.html">
+
+<form action="" method=post>
+<fieldset>
+
+<tmpl_if id>
+<a href="<tmpl_var name="_url">?m=del&id=<tmpl_var name="id">&p=sfa/edit&confirm=1">{{Delete this one}}</a>
+<br />
+{{Created by:}} <tmpl_loop created_by><tmpl_var created_by_name></tmpl_loop>  {{on}}  <tmpl_var name="created"> <tmpl_if modified> {{Modified:}}  <tmpl_var name="modified"> </tmpl_if>
+<br />
+{{Start Date:}}  <tmpl_var name="start_date"><tmpl_var name="error.start_date">
+<br />
+{{End Date:}}  <tmpl_var name="end_date"><tmpl_var name="error.end_date">
+<br />
+{{Status:}}  <tmpl_var name="status"><tmpl_var name="error.status">
+<br />
+</tmpl_if>
+{{Owned by:}}  <tmpl_var name="account_id"><tmpl_var name="account_id.who">
+<br />
+{{Project:}}  <tmpl_var name="project"><tmpl_var name="error.project">
+<br />
+{{Currency:}}  <tmpl_var name="currency"><tmpl_var name="error.currency">
+<br />
+{{Amount: }}  <tmpl_var name="amount"><tmpl_var name="error.amount">
+<br />
+{{Description:}} <tmpl_var name="error.description">
+<br />
+<tmpl_var name="description">
+<br />
+{{Notes/Conditions:}} <tmpl_var name="error.notes"><br />
+<tmpl_var name="notes">
+<br />
+<input type=submit value="{{Submit}}">
+</fieldset>
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="<tmpl_var p>">
+<input type=hidden name="id" value="<tmpl_var name="id">">
+
+</form>
+<tmpl_include name="foot.html">

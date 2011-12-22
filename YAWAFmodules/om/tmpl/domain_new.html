@@ -1,0 +1,18 @@
+<tmpl_include name="head.html">
+<tmpl_include name="domain_tabs.html">
+
+<h3>{{Create New Domain}}</h3>
+<form method=post name="new">
+<input type="hidden" name="p" value="om/domain_new">
+<input type="hidden" name="m" value="submit">
+<fieldset>
+<tmpl_if parent_domain><label>{{Parent Domain:}} <tmpl_var parent_domain><tmpl_var error.parent_domain></label>
+<br /></tmpl_if>
+<label>{{Domain name:}} <tmpl_var domain_name><tmpl_var error.domain_name></label>
+<br />
+<label>{{Description:}} <br /><tmpl_var description><tmpl_var error.description></label>
+<br />
+<input type="submit" value="{{Create}}" />
+</fieldset>
+</form>
+<TMPL_INCLUDE NAME="foot.html">

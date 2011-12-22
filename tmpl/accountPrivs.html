@@ -1,0 +1,16 @@
+<TMPL_INCLUDE NAME="head.html">
+<tmpl_include name="tabs_user_admin.html">
+
+<FORM action="" method=post>
+<tmpl_var name="privFlags">
+<BR>
+<INPUT TYPE=Submit Value="{{Submit}}">
+<INPUT TYPE=HIDDEN name="id" value="<tmpl_var name="id">">
+<INPUT TYPE=HIDDEN name="m" value="submit">
+<INPUT TYPE=HIDDEN name="p" value="accountPrivs">
+<INPUT TYPE=HIDDEN name="_search_on" value="<tmpl_var name=_search_on>">
+<INPUT TYPE=HIDDEN name="_search_for" value="<tmpl_var name=_search_for>">
+<INPUT TYPE=HIDDEN name="_search_on_t-is" value="<tmpl_var name=_search_on_t-is>">
+<INPUT TYPE=HIDDEN name="_order" value="<tmpl_var name=_order>">
+</FORM>
+<TMPL_INCLUDE NAME="foot.html">

@@ -1,0 +1,34 @@
+<tmpl_include name="head.html">
+
+<h3>Event Log</h3>
+
+<form method=post name="eventLog">
+Events from the last <input type=text name="days" value="<tmpl_var days>" size=2> days
+<BR>
+Full name contains <input type=text name="name" value="<tmpl_var name>" size=20>
+<BR>
+<input type=hidden name="p" value="eventLog">
+<input type=hidden name="_order" value="<tmpl_var _order>">
+<input type=hidden name="_search_on" value="1">
+<input type=submit value="submit" name="x">
+</form>
+
+<table border=1 bordercolor="#000066" cellspacing=0 cellpadding=4>
+<tr>
+<th><a href="<tmpl_var _url>?p=eventLog&_order=t">Type</a></th>
+<th><a href="<tmpl_var _url>?p=eventLog&_order=s">Sub Type</a></th>
+<th><a href="<tmpl_var _url>?p=eventLog&_order=u">User</a></th>
+<th><a href="<tmpl_var _url>?p=eventLog&_order=d">Date</a></th>
+<th><a href="<tmpl_var _url>?p=eventLog&_order=c">Content</a></th>
+</tr>
+<tmpl_loop name="items">
+<tr>
+	<td><tmpl_var name=type> </td>
+	<td><tmpl_var name=subType> </td>
+	<td><tmpl_var name=user> </td>
+	<td><tmpl_var name=date> </td>
+	<td><tmpl_var name=content> </td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_include name="foot.html">

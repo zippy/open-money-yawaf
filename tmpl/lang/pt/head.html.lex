@@ -1,0 +1,1 @@
+{{open money}}{{Moeda Aberta}}

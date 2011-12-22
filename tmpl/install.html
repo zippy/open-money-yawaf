@@ -1,0 +1,56 @@
+<tmpl_include name="head_simple.html">
+
+<h4> {{Installation}} </h4>
+<tmpl_unless install_successful>
+	
+	<p>
+	{{Welcome to the open money pilot project!}}
+	</p>
+	<p>
+	{{To complete installation of this software please enter the information on the MySQL database that you have set up.}}
+	<br />
+	{{Note: this installer assumes that your installation of unix has a mysql client at /usr/bin/mysql that it can use to create the initial table structure.}}
+	</p>
+<tmpl_if install_error>
+<span class="errortext"><tmpl_var install_error></span>
+</tmpl_if>
+
+<div id="settings">
+		<form action="<tmpl_var _url>" method="post" id="install">
+			<table border=0><tr><td>
+			<fieldset>
+				<legend>{{General}}</legend>
+				<label for="site_name">{{Site Name: }}</label><tmpl_var name="site_name"> <tmpl_var name="error.site_name"> <br />
+			</fieldset>
+			<fieldset>
+				<legend>{{MySQL Database}}</legend>
+				<label for="db_host">{{Host: }}</label><tmpl_var name="db_host"> <tmpl_var name="error.db_host"> <br />
+				<label for="db_user">{{User: }}</label><tmpl_var name="db_user"> <tmpl_var name="error.db_user"> <br />
+				<label for="db_password">{{Password: }}</label><tmpl_var name="db_password"> <tmpl_var name="error.db_password"> <br />
+				<label for="db_database">{{Database: }}</label><tmpl_var name="db_database"> <tmpl_var name="error.db_database"> <br />
+			</fieldset>
+			<fieldset>
+				<legend>{{Email}}</legend>
+				<label for="smtp_host">{{SMTP Host: }}</label><tmpl_var name="smtp_host"> <tmpl_var name="error.smtp_host"> <br />
+				<label for="admin_email">{{Admin Email: }}</label><tmpl_var name="admin_email"> <tmpl_var name="error.admin_email"> <br />
+				<span class="extra">{{(email to whom to send new account notification, etc)}}</span> <br />
+				<label for="system_from">{{System From Email: }}</label><tmpl_var name="system_from"> <tmpl_var name="error.system_from"> <br />
+				<span class="extra">{{(from address for password reminder, new account, etc.)}}</span><br />
+			</fieldset>
+			<fieldset>
+				<legend>{{Open Money Options}}</legend>
+				<label for="default_domain">{{Default Domain: }}</label><tmpl_var name="default_domain"> <tmpl_var name="error.default_domain"> <br />
+				<span class="extra">{{(leave blank for no auto-account creation)}}</span> <br />
+			</fieldset>
+				<input type="hidden" name="m" value="submit" />
+				<input type="hidden" name="p" value="install" />
+				<input type="submit" value="{{Install}}" /> 
+			</td></tr></table>
+		</form>
+</div>	
+<tmpl_else>
+	<p>{{Installation was successful!}}</p>
+	<p>{{The settings have been stored and your database tables were created. If you need to modify the settings you can edit the config.pl file.}}</p>
+	<p>{{You can now }}<a href="<tmpl_var _url>">{{ log into }}</a>{{the site as "admin" with the password "admin"}}</p>
+</tmpl_unless>
+<tmpl_include name="foot.html">

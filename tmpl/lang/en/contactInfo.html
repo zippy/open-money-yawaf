@@ -1,0 +1,31 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user.html">
+
+<FORM action="<tmpl_var name="_url">" method="post" name="act">
+
+<TMPL_IF _errorCount>
+	<p class="errortext"> Il y a des erreurs dans le formulaire !</p>
+</TMPL_IF>
+
+<table>
+<tr><td align="left">Prénom : </td><td><tmpl_var name="fname"><TMPL_VAR NAME="error.fname"></td></tr>
+<tr><td align="left">Nom : </td><td><tmpl_var name="lname"><TMPL_VAR NAME="error.lname"></td></tr>
+<tr><td align="left">E-mail : </td><td><tmpl_var name="email"><TMPL_VAR NAME="error.email"></td></tr>
+<tr><td align="left">Téléphone : </td><td><tmpl_var name="phone"><TMPL_VAR NAME="error.phone"></td></tr>
+<tr><td align="left">Téléphone 2 : </td><td><tmpl_var name="phone2"><TMPL_VAR NAME="error.phone2"></td></tr>
+<tr><td align="left">Adresse 1 : </td><td><tmpl_var name="address1"><TMPL_VAR NAME="error.address1"></td></tr>
+<tr><td align="left">Adresse 2 : </td><td><tmpl_var name="address2"><TMPL_VAR NAME="error.address2"></td></tr>
+<tr><td align="left">Ville : </td><td><tmpl_var name="city"><TMPL_VAR NAME="error.city"></td></tr>
+<tr><td align="left">Etat </td><td><tmpl_var name="state"><TMPL_VAR NAME="error.state"></td></tr>
+<tr><td align="left">Code postal : </td><td><tmpl_var name="zip"><TMPL_VAR NAME="error.zip"></td></tr>
+<tr><td align="left">Pays : </td><td><tmpl_var name="country"><TMPL_VAR NAME="error.country"></td>
+</tr>
+</table>
+<P>
+<INPUT TYPE=Submit Value="Mettre à jour les coordonnées">
+<INPUT TYPE=HIDDEN name="id" value="<tmpl_var name="id">">
+<INPUT TYPE=HIDDEN name="m" value="submit">
+<INPUT TYPE=HIDDEN name="p" value="contactInfo">
+<input type=hidden name="r" value="<tmpl_var r>">
+</FORM>
+<hidden="foot.html">

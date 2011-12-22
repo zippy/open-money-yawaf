@@ -1,0 +1,22 @@
+<tmpl_include name="head.html">
+<tmpl_include name="domain_tabs.html">
+<tmpl_if can_admin>
+<h3>{{Administer Domain:}} <tmpl_var domain_select></h3>
+
+<h4>{{Properties:}}</h4>
+{{Adding an account to domain is:}} (open/by application/by invitation)
+<p>
+<h4>{{Management:}}</h4>
+Blacklist Accounts From This Domain [edit]
+<br>
+Freeze Accounts In This Domain [edit]
+<br>
+Blacklist Currencies From This Domain [edit]
+<br>
+Freeze Currency In This Domain [edit]
+
+<tmpl_else>
+There are no domains you can administer!
+</tmpl_if>
+
+<TMPL_INCLUDE NAME="foot.html">

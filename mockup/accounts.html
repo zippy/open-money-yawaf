@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/om.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>open money: Accounts</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style1 {color: #0E6E0E}
+-->
+</style>
+<!-- InstanceEndEditable -->
+<link href="om.css" rel="stylesheet" type="text/css">	                    
+</head>
+<body>
+<table class="contents"><tr><td>
+<div id="_topbar"><!-- InstanceBeginEditable name="topbar" -->zippy: <a href="/">logout</a><!-- InstanceEndEditable --></div>
+<center><span class="title">open money</span><!-- InstanceBeginEditable name="titlebar" --><!-- InstanceEndEditable -->
+</center>
+<div id="_main"><!-- InstanceBeginEditable name="main" --><!-- #BeginLibraryItem "/Library/tabs.lbi" -->
+<div align="right">Account:
+  <select name="select">
+      <option>eric</option>
+      <option>oww</option>
+      <option>zippy</option>
+      <option>om_eric</option>
+    </select>
+</div>
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap"><ul id="tabs">
+      <li id="tab-trading" title="Execute transactions"><a href="trading.html">Trading</a></li>
+      <li id="tab-accounts"> <a href="accounts.html" title="View your trading account">Account</a></li>
+      <li id="tab-currencies"> <a href="currencies.my.html" title="choosing and creating currencies">Currencies</a></li>
+      <li id="tab-prefs"> <a href="settings.html" title="Your user settings">Settings</a></li>
+    </ul>
+        <div id="tabs-bar"></div></td>
+  </tr>
+</table>
+<script type="text/javascript">
+var tab=location.pathname.substring(location.pathname.lastIndexOf('/')+1)
+tab = 'tab-'+tab.substring(0,tab.indexOf('.'))
+var i=document.getElementById(tab)
+i.className='selected'
+</script>
+<!-- #EndLibraryItem --><span class="listtabletitle">Trade History:</span>(
+<select name="history_count">
+  <option selected="selected">5</option>
+  <option>10</option>
+</select>
+items per page) &lt;1 <a href="p">2</a> <a href="p">3</a> <a href="p">4</a> ... <a href="p">20</a> &gt; Search <input type="text" name="search" size="10" /> <select name="search"> <option>For</option><option>With</option><option>Currency</option></select> 
+<a href="search term">+</a>
+<table class="listtable">
+  <tr>
+    <td class="listtableheadfirst">Date</td>
+    <td class="listtablehead"><a href="?s">For</a></td>
+    <td class="listtablehead"><a href="?s">With</a></td>
+    <td class="listtablehead"><a href="?s">Amount</a></td>
+    <td class="listtablehead"><a href="?s">Currency</a></td>
+  </tr>
+  <tr>
+    <td class="listtablefirst">4/10/2006 10:22:03</td>
+    <td class="listtable">peanuts and stuff</td>
+    <td class="listtable">Eric Harris-Braun</td>
+    <td class="listtable">22</td>
+    <td class="listtable">Burlington Bread ($)</td>
+  </tr>
+  <tr>
+    <td class="listtablefirstodd">4/10/2006 9:05:01 AM</td>
+    <td class="listtableodd">squid</td>
+    <td class="listtableodd">Michael Linton</td>
+    <td class="listtableodd">1000</td>
+    <td class="listtableodd">CC Bucks ($)</td>
+  </tr>
+  <tr>
+    <td class="listtablefirst">4/9/2006 9:05:01 AM</td>
+    <td class="listtable">painting</td>
+    <td class="listtable">xy^fish.boink.cc</td>
+    <td class="listtable">22</td>
+    <td class="listtable">CC Time (h)</td>
+  </tr>
+  <tr>
+    <td class="listtablefirstodd">4/9/2006 9:05:01 AM</td>
+    <td class="listtableodd">electric</td>
+    <td class="listtableodd">Inca Power </td>
+    <td class="listtableodd">157</td>
+    <td class="listtableodd">Solars (kwh)</td>
+  </tr>
+  <tr>
+    <td class="listtablefirst">4/8/2006 3:05:01 PM </td>
+    <td class="listtable">groceries</td>
+    <td class="listtable">coop^ccasle.cc.ny.us</td>
+    <td class="listtable">1000</td>
+    <td class="listtable">CC Bucks ($)</td>
+  </tr>
+</table>
+<!-- InstanceEndEditable --></div>
+<div id="_footer">
+	<a href="about.exec.html"><br />
+	about open money </a>
+	<p>(cc) the open money development group</p>
+</div>
+</td></tr></table>
+</body>
+<!-- InstanceEnd --></html>

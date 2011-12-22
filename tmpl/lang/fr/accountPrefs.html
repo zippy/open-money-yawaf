@@ -1,0 +1,18 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user.html">
+          
+<form action="" method=post>
+<fieldset id="settings">
+<tmpl_var name="prefFlags">
+<br />
+<label>Page de démarrage: <tmpl_var prefstartpage></label>
+<label>Langue: <tmpl_var preflanguage></label>
+<input type="hidden" name="m" value="submit">
+<input type="hidden" name="p" value="accountPrefs">
+<input type="hidden" name="r" value="<tmpl_var name="r">">
+</fieldset>
+<input type="submit" value="Valider">
+
+</form>
+
+<tmpl_include name="foot.html">

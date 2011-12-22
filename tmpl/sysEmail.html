@@ -1,0 +1,47 @@
+<tmpl_include name="head_simple.html">
+
+<br>
+<tmpl_if success>
+{{Your message has been sent.}} <tmpl_var err>
+<br><br> <a href="#" onclick="window.close(this)"> {{Close Window}} </a>
+<tmpl_else>
+<tmpl_if failure>
+{{Your message could not be sent.}} <tmpl_var err>
+<br><br> <a href="#" onclick="window.close(this)"> {{Close Window}} </a>
+<tmpl_else>
+<h3>{{Send an e-mail message}} <tmpl_if to_fname>to <tmpl_var to_fname> <tmpl_var to_lname></tmpl_if></h3>
+
+<form method=post name="theForm">
+<table border=0>
+<tr>
+	<td align=right valign=top>{{From:}}</td>
+	<td align=left valign=top><tmpl_var from_fname> <tmpl_var from_lname> &lt;<tmpl_var from_email>&gt;</td>
+</tr>
+<tr>
+	<td align=right valign=top>{{To:}}</td>
+	<td align=left valign=top><tmpl_var error.to_email><tmpl_var to_email></td>
+</tr>
+<tr>
+	<td align=right valign=top>{{Subject:}}</td>
+	<td align=left valign=top><tmpl_var error.subject><tmpl_var subject></td>
+</tr>
+<tr>
+	<td align=right valign=top>{{Body:}}</td>
+	<td align=left valign=top><tmpl_var error.body><tmpl_var body></td>
+</tr>
+<tr>
+	<td align=right valign=top>&nbsp;</td>
+	<td align=left valign=top>
+		<input type=submit value="{{Send Message}}"> &nbsp; <input type=button value="{{Close Window}}" onclick="window.close(this)">
+
+        <input type="hidden" name="m" value="submit">
+        <input type="hidden" name="p" value="<tmpl_var p>">
+        <input type="hidden" name="id" value="<tmpl_var id>">
+	</td>
+</tr>
+</table>
+</tmpl_if>
+</tmpl_if>
+</form>
+<tmpl_include name="foot_simple.html">
+

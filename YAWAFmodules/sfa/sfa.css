@@ -1,0 +1,84 @@
+#sfa_stats {
+	float:right; 
+	padding: 1px; 
+	border: 2px solid #8cacbb;
+}
+
+#sfa_stats p {
+	border-bottom: #8cacbb 1px solid;
+	padding:0;
+	margin:0;
+	font-weight: bold;
+}
+
+#sfa_data {
+	float:left;
+	background-color:#EEEEEE;
+	border: 1px solid;
+	padding: 2px;
+}
+
+#sfa_data_title {
+	background-color:#FF2;
+    display: inline;
+}
+
+#sfa_data_mod {
+    display: inline;
+	font-size: 80%;
+}
+
+
+#sfa_myreview {
+	float:left;	
+	clear: both;
+}
+
+#sfa_reviews {
+	clear: both;
+}
+
+#sfa_reviews p {
+	float: left;
+	border: 1px solid grey;
+	padding: 1px 1px 1px 1px;
+}
+.sfa_review_approval {
+	padding: 0px; background-color: #dddddd;
+}
+
+.sfa_review_approval_Yes {
+	border: 1px solid green;
+}
+
+.sfa_review_approval_No {
+	border: 1px solid red;
+}
+
+.sfa_review_approval_Conditional {
+	border: 1px solid yellow;
+}
+
+
+.sfa_review_review {
+	margin: 5px 0px 0px 0px;
+}
+
+.sfa_review_comment {
+background-color: #EEEEEE;
+	margin: -1px 0px 0px 20px;
+}
+
+.sfa_details {
+float: right;
+	font-size: 80%;
+}
+
+
+.sfa_control a {
+border: 1px solid black;
+background-color: white;
+	font-size: 90%;
+padding: 0px 1px 0px 1px;
+margin: 1px
+}

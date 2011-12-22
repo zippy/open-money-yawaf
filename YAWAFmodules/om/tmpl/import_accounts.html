@@ -1,0 +1,23 @@
+<tmpl_include name="head.html">
+<tmpl_include name="import_tabs.html">
+
+<tmpl_unless import_successful>
+	<form method=post name="import" id="import">
+	Import a set of accounts and auto-join domain: <tmpl_var domain>
+	and currency: <tmpl_var currency>
+	<p>
+	<h4>Input Format</h4>
+	user_name,password,first_name,last_name,email,phone,fax,address1,address2,city,state,zip,country
+	<p>
+	<tmpl_if error.import><tmpl_var error.import><p></tmpl_if>
+	<tmpl_var import>
+	<p>
+	<input type="hidden" name="p" value="om/import_accounts">
+	<input type="submit" name="m" value="submit">
+	
+	</form>
+<tmpl_else>
+	Import was succesfull
+</tmpl_unless>
+
+<TMPL_INCLUDE NAME="foot.html">

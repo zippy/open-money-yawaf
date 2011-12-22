@@ -1,0 +1,12 @@
+<table border="0" cellspacing="0" cellpadding="4" width="100%">
+  <tr>
+    <td nowrap="nowrap">
+    <div id="tabs-bar">
+    <ul id="tabs">
+      <li id="tab-info" title="Mettre à jour vos coordonnées" <tmpl_if p_contactInfo>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=contactInfo">Coordonnées</a></li>
+      <li id="tab-prefs" title="Mettre à jour la façon dont le site fonctionne" <tmpl_if p_accountPrefs>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountPrefs">Préférences</a></li>
+      <li id="tab-pass" title="Changer votre mot de passe" <tmpl_if p_accountChange>class="selected"</tmpl_if>><a href="<tmpl_var _url>?p=accountChange">Mot de passe</a></li>
+    </ul>
+        </div></td>
+  </tr>
+</table>

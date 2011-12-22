@@ -1,0 +1,25 @@
+<tmpl_include name="head.html">
+<tmpl_include name="tabs_user.html">
+
+<tmpl_if _updatesuccess> 
+Votre mot de passe a été changé avec succès.
+<tmpl_else>
+
+<form action="" method=post>
+<table cellpadding=2 border=0 width=400>
+<tr>
+<td colspan=2>Pour changer votre mot de passe, indiquez SVP votre compte actuel :</td></tr>
+<tr><td align="right">Mot de passe actuel : </td><td><tmpl_var name="oldPass"><tmpl_if _updatefailure><br /><font class="errortext">Ce mot de passe n'est pas le bon !</font></tmpl_if></td></tr>
+<tr><td align="right">Nouveau mot de passe : </td><td><tmpl_var name="password"><tmpl_if error.password><br><tmpl_var name="error.password"></tmpl_if></td></tr>
+<tr><td align="right">Retapez-le </td><td><input type=password name="password_confirm" size="25" maxlength="25"></td></tr>
+
+<td>
+<input type=submit value="Confirmer">
+<input type=hidden name="m" value="submit">
+<input type=hidden name="p" value="accountChange">
+<input type=hidden name="r" value="<tmpl_var r>">
+</td></tr>
+</table>
+</form>
+</tmpl_if>
+<tmpl_include name="foot.html">

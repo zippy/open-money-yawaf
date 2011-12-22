@@ -1,0 +1,35 @@
+<tmpl_if level_plus_one>
+<div id="node_<tmpl_var id>" class="node_level_<tmpl_var level>">
+	<span class="node_details">
+		<span class="node_control">
+		<a href="#" onClick="createNode(<tmpl_var id>,<tmpl_var level_plus_one>); return false;" title="{{Add sub node}}">+</a>
+		</span>
+	</span>
+	<tmpl_if has_children>+</tmpl_if><a id="name_<tmpl_var id>" href="#" class="node_name" onclick="toggleContents(<tmpl_var id>); return false;" title="Click to <tmpl_if show_contents>hide<tmpl_else>show</tmpl_if> contents of this item (id:<tmpl_var id>)"><tmpl_var name></a><span id="e_name_<tmpl_var id>"></span>
+	<div id="node_contents_<tmpl_var id>" class="node_contents" <tmpl_unless show_contents>style="display:none"</tmpl_unless>>
+</tmpl_if>
+
+		<tmpl_if contents>
+		<tmpl_var contents>
+		<br />
+		</tmpl_if>
+		<span class="last_modified">{{last modified on}} <tmpl_var name=modified> {{by}} <tmpl_var name=fname> <tmpl_var name=lname></span>
+		<span class="node_control">
+		<a href="#" onClick="editNode(<tmpl_var id>);return false;" title="{{Edit node}}">{{edit}}</a>
+		</span>
+		<span class="node_control">
+		<a href="#" onClick="rename_Node(<tmpl_var id>);return false;" title="{{Rename node}}">{{rename}}</a>
+		</span>
+		<span class="node_control">
+		<a href="?p=node/node&m=history&id=<tmpl_var id><tmpl_if depth>&depth=<tmpl_var depth></tmpl_if>&show_contents=<tmpl_var show_contents>&order=<tmpl_var order>" title="{{View node history}}">{{history}}</a>
+		</span>
+		<span class="node_control">
+		<a href="#" onClick="deleteNode(<tmpl_var id>);return false;" title="{{Delete this node}}">{{delete}}</a>
+		</span>
+
+
+<tmpl_if level_plus_one>
+	</div>
+</div>
+<div id="subnode_<tmpl_var id>" style="display:none"  class="node_level_<tmpl_var level_plus_one>"></div>
+</tmpl_if>
